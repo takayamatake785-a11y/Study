@@ -1,25 +1,17 @@
-# Study Quest v2.0
+# Study Quest v3.0
 
-## 更新内容
-- クエストの達成・編集・破棄、XP報酬の調整
-- 最近学習していない科目を優先する1日1回の緊急クエスト
-- 累計学習XPによるレベルアップとランダムステータス成長
-- 自由探索・3階層＋ボスのダンジョン
-- 物理攻撃／属性魔法／回復／防御／逃走のターン制戦闘
-- 敵ごとの弱点・耐性・性格AI・予備動作
-- GOLDショップ、装備のトレードオフ、スキル習得
-- JSONバックアップ・復元
+Installable, offline-capable study tracker and lightweight RPG.
 
-## 公開・更新方法
-1. ZIPを展開する
-2. GitHubの `study-quest` リポジトリを開く
-3. ルート直下の同名ファイルを置き換え、追加ファイルがあればアップロードする
-4. GitHub PagesのURLを開き直す
+## v3 additions
+- Monster bestiary with discovery and defeat records
+- Six evolutionary families and rank metadata (lower to calamity)
+- Upper-rank encounters are uncommon in normal exploration and more frequent in dungeons
+- Rarity tiers (normal / rare / legendary) are independent of monster rank
+- Six original fantasy monster illustrations embedded in index.html, so no asset folder upload is needed
+- Bestiary filters and branching evolution-tree views
 
-既存のGitHub Pages URLはそのまま使えます。Service Workerのキャッシュ名をv2に変更してあります。
-データは同じブラウザのlocalStorageに保存されます。端末・ブラウザ間の同期はありません。アップデート前に大切なデータがある場合はJSONバックアップを取ってください。
+## Deploy to GitHub Pages from iPhone
+Upload the six files in this folder to the root of the existing `study-quest` repository, replacing same-named files: `index.html`, `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png`, and `README.md`. No subfolders are required.
 
-## ゲーム設計
-- レベルは累計学習XPのみで上昇します。ショップでXPを使ってもレベルは下がりません。
-- 冒険で獲得するのはGOLD・アイテムです。
-- 装備は強みと弱みを併せ持ちます。
+## Data
+Progress is stored in browser localStorage. Export a JSON backup from Settings before clearing site data or changing devices. Existing v2 data uses the same storage key and is migrated with empty bestiary records.
