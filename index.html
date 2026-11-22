@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#18253c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Study Quest">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Study Quest</title>
+<style>
+:root{--navy:#18253c;--gold:#e9c978;--green:#16845f;--bg:#f4f6fa;--card:#fff;--muted:#687386;--line:#e4e8ef}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;color:#1d2939;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+header{background:var(--navy);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 18px 18px}
+.brand{font-size:12px;letter-spacing:2px;color:#bdc9da;font-weight:700}.hero{display:flex;gap:14px;align-items:center;margin-top:15px}
+.avatar{width:76px;height:76px;border-radius:20px;background:#344966;display:grid;place-items:center;font-size:34px;border:1px solid #536681}
+h1{font-size:22px;margin:0 0 4px}.sub{font-size:12px;color:#c4d0e0}
+.xpbar{height:9px;background:#42536c;border-radius:20px;overflow:hidden;margin-top:9px}.xpbar span{display:block;height:100%;background:var(--gold);width:0}
+.coach{background:#293a54;border-radius:14px;padding:12px;margin-top:16px;font-size:13px;line-height:1.6}
+main{padding:16px;max-width:720px;margin:auto}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px}
+.tab{border:0;background:#e8edf4;color:#536176;padding:11px 4px;border-radius:12px;font-size:12px;font-weight:700}
+.tab.active{background:#dce8f6;color:#294c78}
+.panel{display:none}.panel.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #17243a08}
+h2{font-size:18px;margin:0 0 12px}h3{font-size:14px;margin:0 0 8px}
+.muted{color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#f2f5f9;border-radius:13px;padding:13px}.stat strong{display:block;font-size:24px;margin-top:4px}
+.progress{height:10px;border-radius:20px;background:#e9edf2;overflow:hidden}.progress span{display:block;height:100%;background:var(--green)}
+button,.btn{border:0;border-radius:12px;padding:12px 14px;font-weight:700;font-size:14px;background:var(--navy);color:white;cursor:pointer}
+button.secondary{background:#edf1f6;color:#334155}button.green{background:var(--green)}button.danger{background:#fff0f0;color:#a33}
+button:disabled{opacity:.45;cursor:not-allowed}.full{width:100%}
+input,select,textarea{width:100%;border:1px solid #d7dee8;border-radius:10px;padding:11px;font-size:15px;background:white;color:#1d2939;margin-top:5px}
+textarea{min-height:76px;resize:vertical}label{font-size:12px;font-weight:700;color:#475467;display:block;margin:12px 0 4px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.pill{font-size:11px;padding:5px 8px;border-radius:30px;background:#edf3fa;color:#36577f}
+.task,.history,.reward{border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0}
+.task p{margin:6px 0 10px;font-size:14px}.task.done{opacity:.65;background:#f6faf8}
+.reward{display:flex;align-items:center;gap:10px}.reward .emoji{font-size:26px}.reward .info{flex:1}.reward strong{display:block;font-size:14px}
+.small{font-size:11px;color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:18px;font-size:13px}
+nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:9px 14px calc(9px + env(safe-area-inset-bottom));text-align:center;font-size:10px;color:var(--muted)}
+.notice{background:#fff8e6;border:1px solid #f0dfb4;padding:11px;border-radius:12px;font-size:12px;line-height:1.6;color:#725b24}
+hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">STUDY QUEST · YOUR LEARNING ADVENTURE</div>
+ <div class="hero">
+  <div class="avatar">🛡️</div>
+  <div style="flex:1;min-width:0">
+   <h1>学習冒険者 <span id="level">Lv.1</span></h1>
+   <div class="sub"><span id="xp">0</span> XP ・ 次のレベルまで <span id="toNext">100</span> XP</div>
+   <div class="xpbar"><span id="xpProgress"></span></div>
+  </div>
+ </div>
+ <div class="coach"><b>✦ 専属管理者</b><div id="coachText">今日も一歩ずつ進めよう。まずは小さなクエストから。</div></div>
+</header>
+<main>
+ <div class="tabs">
+  <button class="tab active" data-tab="home">ホーム</button>
+  <button class="tab" data-tab="quests">クエスト</button>
+  <button class="tab" data-tab="report">学習報告</button>
+  <button class="tab" data-tab="shop">報酬</button>
+ </div>
+ <section id="home" class="panel active">
+  <div class="card">
+   <h2>今日の冒険</h2>
+   <div class="stats">
+    <div class="stat"><span class="muted">今日の学習時間</span><strong id="todayTime">0分</strong></div>
+    <div class="stat"><span class="muted">今日の獲得XP</span><strong id="todayXP">0</strong></div>
+   </div>
+   <div style="margin-top:15px" class="row"><b>今日のクエスト</b><span class="muted" id="questCount">0 / 0</span></div>
+   <div class="progress" style="margin-top:8px"><span id="questProgress"></span></div>
+  </div>
+  <div class="card"><h2>今日の学習ログ</h2><div id="todayLogs"></div></div>
+  <div class="notice">ヒント：勉強時間だけでなく、取り組んだ内容や理解度も記録しておこう。休憩や娯楽も、あらかじめ決めた時間で楽しもう。</div>
+ </section>
+ <section id="quests" class="panel">
+  <div class="card">
+   <h2>クエスト一覧</h2><div class="muted">達成したらXPを獲得できます。</div><div id="questList"></div>
+  </div>
+  <div class="card">
+   <h3>新しいクエストを追加</h3>
+   <label>科目</label><select id="qSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>その他</option></select>
+   <label>クエスト名</label><input id="qName" placeholder="例：青チャートの例題を5問">
+   <label>獲得XP</label><input id="qXP" type="number" min="1" max="500" value="30">
+   <button class="full" id="addQuest" style="margin-top:12px">＋ クエストを追加</button>
+  </div>
+ </section>
+ <section id="report" class="panel">
+  <div class="card">
+   <h2>自由学習を報告</h2>
+   <div class="muted">クエストに登録していない勉強も記録できます。</div>
+   <label>科目</label><select id="rSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>その他</option></select>
+   <label>教材・学習内容</label><input id="rTitle" placeholder="例：青チャート 数学I・A">
+   <label>具体的に取り組んだこと</label><textarea id="rDetail" placeholder="例：二次関数の初見問題を解き、解法を復習した"></textarea>
+   <label>学習時間（分）</label><input id="rMinutes" type="number" min="1" max="600" value="60">
+   <label>学習強度</label><select id="rIntensity"><option value="1">軽め：既習内容の復習・暗記</option><option value="1.25" selected>標準：通常の問題演習・精読</option><option value="1.5">高負荷：初見問題・難問・深い理解</option></select>
+   <label>理解度</label><select id="rUnderstanding"><option value="0">あまり進まなかった（+0 XP）</option><option value="3" selected>理解が進んだ（+3 XP）</option><option value="5">よく理解できた（+5 XP）</option></select>
+   <div class="notice" style="margin-top:14px">XP目安：時間（5分ごとに1 XP）×強度係数＋理解度ボーナス。1回の報告は最大300分として計算します。自分を責めず、実際の取り組みに近い強度を選ぼう。</div>
+   <div class="row" style="margin:14px 0"><b>獲得予定XP</b><strong style="font-size:24px;color:var(--green)" id="xpPreview">+18 XP</strong></div>
+   <button class="green full" id="submitReport">学習を報告してXP獲得！</button>
+  </div>
+  <div class="card"><h2>学習履歴</h2><div id="history"></div></div>
+ </section>
+ <section id="shop" class="panel">
+  <div class="card"><div class="row"><h2>ご褒美ショップ</h2><span class="pill"><span id="shopXP">0</span> XP</span></div><div class="muted">勉強のあとに楽しむ時間を、先に決めて交換しよう。</div><div id="rewardList"></div></div>
+  <div class="card"><h3>自分だけの報酬を追加</h3>
+   <label>報酬名</label><input id="rewardName" placeholder="例：好きなゲームを遊ぶ">
+   <label>楽しむ時間</label><input id="rewardTime" placeholder="例：20分">
+   <label>必要XP</label><input id="rewardCost" type="number" min="1" value="25">
+   <button class="full" id="addReward" style="margin-top:12px">報酬を追加</button>
+   <hr><h3>交換履歴</h3><div id="redemptions"></div>
+  </div>
+ </section>
+ <section id="settings" class="panel">
+  <div class="card"><h2>データ管理</h2>
+   <p class="muted">データはこのiPhoneのブラウザ内に保存されます。定期的にバックアップしてください。</p>
+   <button class="full" id="exportData">バックアップを書き出す（JSON）</button>
+   <label>バックアップファイルから復元</label><input type="file" id="importFile" accept="application/json">
+   <button class="secondary full" id="resetData" style="margin-top:12px">すべてのデータを初期化</button>
+   <div class="notice" style="margin-top:14px">注意：Safariの履歴・Webサイトデータを消去したり、端末を変更したりするとデータが失われる場合があります。バックアップを別の場所にも保管してください。</div>
+  </div>
+  <div class="card"><h3>アプリについて</h3><p class="muted">Study Quest v1.0 · データ保存は端末内（localStorage）</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
+ </section>
+</main>
+<nav class="bottom">STUDY QUEST · 小さな積み重ねを、合格への力に。</nav>
+<script>
+const KEY='studyQuest_v1';
+const defaultState={
+ xp:0,quests:[
+  {id:1,subject:'英語',name:'ターゲット1900を100語復習',xp:30,done:false,day:today()},
+  {id:2,subject:'英語',name:'速読英熟語を1題精読',xp:40,done:false,day:today()},
+  {id:3,subject:'数学',name:'青チャートの例題を5問',xp:50,done:false,day:today()},
+  {id:4,subject:'世界史',name:'古代オリエントを復習',xp:30,done:false,day:today()}
+ ],
+ logs:[],rewards:[
+  {id:1,name:'ゲームタイム',time:'15分',cost:20,emoji:'🎮'},
+  {id:2,name:'アニメタイム',time:'15分',cost:25,emoji:'📺'},
+  {id:3,name:'動画タイム',time:'15分',cost:15,emoji:'▶️'}
+ ],redemptions:[],coach:'今日も一歩ずつ進めよう。まずは小さなクエストから。'
+};
+function today(){return new Date().toLocaleDateString('sv-SE')}
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY));return x&&typeof x==='object'?{...structuredClone(defaultState),...x}:structuredClone(defaultState)}catch{return structuredClone(defaultState)}}
+let state=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function level(){return Math.floor(state.xp/100)+1}
+function render(){
+ const xp=state.xp||0,rem=xp%100;
+ document.getElementById('level').textContent='Lv.'+level();
+ document.getElementById('xp').textContent=xp;
+ document.getElementById('toNext').textContent=100-rem;
+ document.getElementById('xpProgress').style.width=rem+'%';
+ document.getElementById('coachText').textContent=state.coach;
+ const todayLogs=state.logs.filter(x=>x.day===today());
+ const todayQuests=state.quests.filter(x=>x.day===today());
+ const done=todayQuests.filter(x=>x.done).length;
+ document.getElementById('todayTime').textContent=todayLogs.reduce((a,x)=>a+x.minutes,0)+'分';
+ document.getElementById('todayXP').textContent=todayLogs.reduce((a,x)=>a+x.xp,0)+state.quests.filter(x=>x.done&&x.completedDay===today()).reduce((a,x)=>a+x.xp,0);
+ document.getElementById('questCount').textContent=done+' / '+todayQuests.length;
+ document.getElementById('questProgress').style.width=(todayQuests.length?done/todayQuests.length*100:0)+'%';
+ document.getElementById('todayLogs').innerHTML=todayLogs.length?todayLogs.slice().reverse().map(x=>`<div class="history"><b>${esc(x.title)}</b><div class="small">${esc(x.subject)} · ${x.minutes}分 · +${x.xp} XP</div></div>`).join(''):'<div class="empty">今日の学習報告はまだありません。</div>';
+ document.getElementById('questList').innerHTML=state.quests.slice().reverse().map(q=>`<div class="task ${q.done?'done':''}"><div class="row"><span class="pill">${esc(q.subject)}</span><b style="color:var(--green)">+${q.xp} XP</b></div><p>${esc(q.name)}</p>${q.done?'<span class="small">✓ 達成済み</span>':`<button class="green full" data-complete="${q.id}">クエスト達成</button>`}</div>`).join('')||'<div class="empty">クエストはありません。</div>';
+ document.querySelectorAll('[data-complete]').forEach(b=>b.onclick=()=>{let q=state.quests.find(x=>x.id===Number(b.dataset.complete));if(q&&!q.done){q.done=true;q.completedDay=today();state.xp+=q.xp;state.coach='いい調子だね。達成したことを記録できたよ。次も自分のペースで進めよう。';save()}});
+ document.getElementById('history').innerHTML=state.logs.length?state.logs.slice().reverse().map(x=>`<div class="history"><div class="row"><b>${esc(x.title)}</b><b style="color:var(--green)">+${x.xp} XP</b></div><div class="small">${esc(x.subject)} · ${x.day} · ${x.minutes}分 · ${esc(x.intensity)}</div><div style="font-size:13px;margin-top:5px">${esc(x.detail)}</div></div>`).join(''):'<div class="empty">まだ学習履歴はありません。</div>';
+ document.getElementById('shopXP').textContent=xp;
+ document.getElementById('rewardList').innerHTML=state.rewards.map(r=>`<div class="reward"><div class="emoji">${r.emoji||'🎁'}</div><div class="info"><strong>${esc(r.name)}</strong><span class="small">${esc(r.time)} · ${r.cost} XP</span></div><button ${xp<r.cost?'disabled':''} data-redeem="${r.id}">交換</button></div>`).join('');
+ document.querySelectorAll('[data-redeem]').forEach(b=>b.onclick=()=>{let r=state.rewards.find(x=>x.id===Number(b.dataset.redeem));if(r&&state.xp>=r.cost){state.xp-=r.cost;state.redemptions.push({name:r.name,time:r.time,cost:r.cost,day:today()});state.coach='報酬を交換したね。楽しむ時間も大切に。終わったら次の予定に戻ろう。';save()}});
+ document.getElementById('redemptions').innerHTML=state.redemptions.length?state.redemptions.slice().reverse().map(r=>`<div class="history"><b>${esc(r.name)}</b><div class="small">${esc(r.time)} · ${r.cost} XP · ${r.day}</div></div>`).join(''):'<div class="empty">交換履歴はありません。</div>';
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')});
+document.getElementById('addQuest').onclick=()=>{let name=document.getElementById('qName').value.trim(),xp=Math.max(1,Math.min(500,Number(document.getElementById('qXP').value)||30));if(!name)return;state.quests.push({id:Date.now(),subject:document.getElementById('qSubject').value,name,xp,done:false,day:today()});document.getElementById('qName').value='';save()};
+function calcXP(){let m=Math.max(0,Math.min(300,Number(document.getElementById('rMinutes').value)||0)),factor=Number(document.getElementById('rIntensity').value),bonus=Number(document.getElementById('rUnderstanding').value);return m?Math.floor(m/5*factor)+bonus:0}
+function updatePreview(){document.getElementById('xpPreview').textContent='+'+calcXP()+' XP'}
+['rMinutes','rIntensity','rUnderstanding'].forEach(id=>document.getElementById(id).addEventListener('input',updatePreview));
+document.getElementById('submitReport').onclick=()=>{let title=document.getElementById('rTitle').value.trim(),detail=document.getElementById('rDetail').value.trim(),minutes=Number(document.getElementById('rMinutes').value);if(!title||!detail||!minutes||minutes<1){alert('教材・内容・学習時間を入力してください。');return}let factor=Number(document.getElementById('rIntensity').value),under=Number(document.getElementById('rUnderstanding').value),xp=calcXP();let intensity=document.getElementById('rIntensity').selectedOptions[0].text.split('：')[0];state.logs.push({id:Date.now(),subject:document.getElementById('rSubject').value,title,detail,minutes,xp,intensity,day:today()});state.xp+=xp;state.coach='学習報告を受け取ったよ。取り組んだ内容を言葉にできたのも大切な成果だね。';document.getElementById('rTitle').value='';document.getElementById('rDetail').value='';save();alert('+'+xp+' XP 獲得！')};
+document.getElementById('addReward').onclick=()=>{let name=document.getElementById('rewardName').value.trim(),time=document.getElementById('rewardTime').value.trim(),cost=Math.max(1,Math.min(10000,Number(document.getElementById('rewardCost').value)||25));if(!name||!time)return;state.rewards.push({id:Date.now(),name,time,cost,emoji:'🎁'});document.getElementById('rewardName').value='';document.getElementById('rewardTime').value='';save()};
+document.getElementById('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='study-quest-backup-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x||typeof x.xp!=='number'||!Array.isArray(x.logs)||!Array.isArray(x.quests)||!Array.isArray(x.rewards))throw Error();if(confirm('現在のデータをバックアップ内容で置き換えますか？')){state={...structuredClone(defaultState),...x};save();alert('復元しました')}}catch{alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
+document.getElementById('resetData').onclick=()=>{if(confirm('すべての学習記録・XP・クエストを削除します。先にバックアップしましたか？')&&confirm('本当に初期化しますか？')){state=structuredClone(defaultState);save()}};
+document.getElementById('showInstall').onclick=()=>alert('SafariでこのアプリのURLを開き、共有ボタン →「ホーム画面に追加」→「追加」を選んでください。');
+render();updatePreview();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
