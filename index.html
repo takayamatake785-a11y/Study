@@ -10,177 +10,259 @@
 <link rel="manifest" href="manifest.webmanifest">
 <title>Study Quest</title>
 <style>
-:root{--navy:#18253c;--gold:#e9c978;--green:#16845f;--bg:#f4f6fa;--card:#fff;--muted:#687386;--line:#e4e8ef}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;color:#1d2939;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
-header{background:var(--navy);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 18px 18px}
-.brand{font-size:12px;letter-spacing:2px;color:#bdc9da;font-weight:700}.hero{display:flex;gap:14px;align-items:center;margin-top:15px}
-.avatar{width:76px;height:76px;border-radius:20px;background:#344966;display:grid;place-items:center;font-size:34px;border:1px solid #536681}
-h1{font-size:22px;margin:0 0 4px}.sub{font-size:12px;color:#c4d0e0}
-.xpbar{height:9px;background:#42536c;border-radius:20px;overflow:hidden;margin-top:9px}.xpbar span{display:block;height:100%;background:var(--gold);width:0}
-.coach{background:#293a54;border-radius:14px;padding:12px;margin-top:16px;font-size:13px;line-height:1.6}
-main{padding:16px;max-width:720px;margin:auto}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px}
-.tab{border:0;background:#e8edf4;color:#536176;padding:11px 4px;border-radius:12px;font-size:12px;font-weight:700}
-.tab.active{background:#dce8f6;color:#294c78}
-.panel{display:none}.panel.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #17243a08}
-h2{font-size:18px;margin:0 0 12px}h3{font-size:14px;margin:0 0 8px}
-.muted{color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:#f2f5f9;border-radius:13px;padding:13px}.stat strong{display:block;font-size:24px;margin-top:4px}
-.progress{height:10px;border-radius:20px;background:#e9edf2;overflow:hidden}.progress span{display:block;height:100%;background:var(--green)}
-button,.btn{border:0;border-radius:12px;padding:12px 14px;font-weight:700;font-size:14px;background:var(--navy);color:white;cursor:pointer}
-button.secondary{background:#edf1f6;color:#334155}button.green{background:var(--green)}button.danger{background:#fff0f0;color:#a33}
-button:disabled{opacity:.45;cursor:not-allowed}.full{width:100%}
-input,select,textarea{width:100%;border:1px solid #d7dee8;border-radius:10px;padding:11px;font-size:15px;background:white;color:#1d2939;margin-top:5px}
-textarea{min-height:76px;resize:vertical}label{font-size:12px;font-weight:700;color:#475467;display:block;margin:12px 0 4px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.pill{font-size:11px;padding:5px 8px;border-radius:30px;background:#edf3fa;color:#36577f}
-.task,.history,.reward{border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0}
-.task p{margin:6px 0 10px;font-size:14px}.task.done{opacity:.65;background:#f6faf8}
-.reward{display:flex;align-items:center;gap:10px}.reward .emoji{font-size:26px}.reward .info{flex:1}.reward strong{display:block;font-size:14px}
-.small{font-size:11px;color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:18px;font-size:13px}
-nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:9px 14px calc(9px + env(safe-area-inset-bottom));text-align:center;font-size:10px;color:var(--muted)}
-.notice{background:#fff8e6;border:1px solid #f0dfb4;padding:11px;border-radius:12px;font-size:12px;line-height:1.6;color:#725b24}
-hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+:root{--navy:#18253c;--gold:#e9c978;--green:#16845f;--bg:#f3f5f9;--card:#fff;--muted:#687386;--line:#e2e7ef;--red:#b94b4b;--blue:#426b9b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;color:#1d2939;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+header{background:linear-gradient(135deg,#18253c,#304866);color:#fff;padding:calc(17px + env(safe-area-inset-top)) 17px 17px}
+.brand{font-size:11px;letter-spacing:2px;color:#c3cfdf;font-weight:800}.hero{display:flex;gap:13px;align-items:center;margin-top:13px}.avatar{width:62px;height:62px;border-radius:18px;background:#405675;display:grid;place-items:center;font-size:30px;border:1px solid #637b9b}
+h1{font-size:21px;margin:0 0 4px}.sub{font-size:12px;color:#d1dbea}.xpbar{height:8px;background:#536781;border-radius:20px;overflow:hidden;margin-top:8px}.xpbar span{display:block;height:100%;background:var(--gold);width:0}
+.coach{background:#293a54;border-radius:13px;padding:10px 12px;margin-top:13px;font-size:12px;line-height:1.6}.coach b{color:#f1d995}
+main{padding:13px;max-width:760px;margin:auto}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:13px}
+.tab{border:0;background:#e7ecf3;color:#536176;padding:10px 4px;border-radius:11px;font-size:12px;font-weight:800}
+.tab.active{background:#dce8f6;color:#294c78}.panel{display:none}.panel.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:11px;box-shadow:0 2px 8px #17243a08}
+h2{font-size:17px;margin:0 0 11px}h3{font-size:14px;margin:0 0 8px}.muted{color:var(--muted);font-size:12px;line-height:1.55}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:#f1f4f8;border-radius:12px;padding:11px}.stat strong{display:block;font-size:22px;margin-top:4px}
+.progress{height:9px;border-radius:20px;background:#e9edf2;overflow:hidden}.progress span{display:block;height:100%;background:var(--green)}
+button,.btn{border:0;border-radius:11px;padding:11px 13px;font-weight:750;font-size:13px;background:var(--navy);color:white;cursor:pointer}
+button.secondary{background:#edf1f6;color:#334155}button.green{background:var(--green)}button.danger{background:#fff0f0;color:#a33}button.gold{background:#8a6822;color:white}
+button:disabled{opacity:.42;cursor:not-allowed}.full{width:100%}
+input,select,textarea{width:100%;border:1px solid #d7dee8;border-radius:9px;padding:10px;font-size:14px;background:white;color:#1d2939;margin-top:5px}
+textarea{min-height:68px;resize:vertical}label{font-size:12px;font-weight:750;color:#475467;display:block;margin:10px 0 3px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.row.wrap{flex-wrap:wrap}.pill{font-size:10px;padding:4px 8px;border-radius:30px;background:#edf3fa;color:#36577f;white-space:nowrap}
+.task,.history,.reward,.enemy,.skill,.gear{border:1px solid var(--line);border-radius:12px;padding:11px;margin:8px 0}.task p{margin:7px 0 9px;font-size:13px}.task.done{opacity:.62;background:#f6faf8}
+.reward{display:flex;align-items:center;gap:9px}.reward .emoji{font-size:24px}.reward .info{flex:1;min-width:0}.reward strong{display:block;font-size:13px}
+.small{font-size:11px;color:var(--muted);line-height:1.5}.empty{text-align:center;color:var(--muted);padding:17px;font-size:12px}
+.notice{background:#fff8e6;border:1px solid #f0dfb4;padding:10px;border-radius:11px;font-size:11px;line-height:1.6;color:#725b24}
+.danger-note{background:#fff1f0;border:1px solid #f0d0cd;padding:10px;border-radius:11px;font-size:11px;line-height:1.6;color:#873f3a}
+hr{border:0;border-top:1px solid var(--line);margin:13px 0}
+.barline{height:8px;background:#e8edf3;border-radius:10px;overflow:hidden;margin-top:5px}.barline span{height:100%;display:block;background:#c16a58}
+.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.mini{background:#f3f5f8;padding:9px;border-radius:10px;font-size:12px}.mini b{font-size:16px;display:block;margin-top:3px}
+.actiongrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.actiongrid button{width:100%}
+.enemy-head{display:flex;align-items:center;gap:12px}.monster{font-size:42px;width:55px;text-align:center}.hp{font-size:11px;color:var(--muted);margin-top:5px}.hpbar{height:9px;background:#f0e4e4;border-radius:10px;overflow:hidden;margin-top:4px}.hpbar span{display:block;height:100%;background:#c45b5b}
+.log{background:#f4f6f9;border-radius:10px;padding:10px;font-size:12px;line-height:1.6;max-height:150px;overflow:auto;margin:9px 0}
+nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom));text-align:center;font-size:10px;color:var(--muted)}
+@media(min-width:600px){.tabs{grid-template-columns:repeat(6,1fr)}}
 </style>
 </head>
 <body>
 <header>
  <div class="brand">STUDY QUEST · YOUR LEARNING ADVENTURE</div>
- <div class="hero">
-  <div class="avatar">🛡️</div>
-  <div style="flex:1;min-width:0">
-   <h1>学習冒険者 <span id="level">Lv.1</span></h1>
-   <div class="sub"><span id="xp">0</span> XP ・ 次のレベルまで <span id="toNext">100</span> XP</div>
-   <div class="xpbar"><span id="xpProgress"></span></div>
-  </div>
- </div>
- <div class="coach"><b>✦ 専属管理者</b><div id="coachText">今日も一歩ずつ進めよう。まずは小さなクエストから。</div></div>
+ <div class="hero"><div class="avatar">🛡️</div><div style="flex:1;min-width:0">
+  <h1>学習冒険者 <span id="level">Lv.1</span></h1>
+  <div class="sub"><span id="xp">0</span> XP（所持） · 累計 <span id="totalXP">0</span> XP</div>
+  <div class="xpbar"><span id="xpProgress"></span></div><div class="sub" style="margin-top:4px">次のレベルまで <span id="toNext">100</span> XP</div>
+ </div></div>
+ <div class="coach"><b>✦ 専属管理者</b><div id="coachText">今日も一歩ずつ。勉強の積み重ねが、冒険者を強くするよ。</div></div>
 </header>
 <main>
  <div class="tabs">
-  <button class="tab active" data-tab="home">ホーム</button>
-  <button class="tab" data-tab="quests">クエスト</button>
-  <button class="tab" data-tab="report">学習報告</button>
-  <button class="tab" data-tab="shop">報酬</button>
+  <button class="tab active" data-tab="home">ホーム</button><button class="tab" data-tab="quests">クエスト</button><button class="tab" data-tab="report">学習報告</button><button class="tab" data-tab="shop">報酬</button><button class="tab" data-tab="rpg">冒険RPG</button><button class="tab" data-tab="settings">設定</button>
  </div>
  <section id="home" class="panel active">
-  <div class="card">
-   <h2>今日の冒険</h2>
-   <div class="stats">
-    <div class="stat"><span class="muted">今日の学習時間</span><strong id="todayTime">0分</strong></div>
-    <div class="stat"><span class="muted">今日の獲得XP</span><strong id="todayXP">0</strong></div>
-   </div>
-   <div style="margin-top:15px" class="row"><b>今日のクエスト</b><span class="muted" id="questCount">0 / 0</span></div>
-   <div class="progress" style="margin-top:8px"><span id="questProgress"></span></div>
-  </div>
+  <div class="card"><h2>今日の冒険</h2><div class="stats">
+   <div class="stat"><span class="muted">今日の学習時間</span><strong id="todayTime">0分</strong></div><div class="stat"><span class="muted">今日の獲得XP</span><strong id="todayXP">0</strong></div>
+  </div><div class="row" style="margin-top:13px"><b>今日のクエスト</b><span class="muted" id="questCount">0 / 0</span></div><div class="progress" style="margin-top:7px"><span id="questProgress"></span></div></div>
   <div class="card"><h2>今日の学習ログ</h2><div id="todayLogs"></div></div>
-  <div class="notice">ヒント：勉強時間だけでなく、取り組んだ内容や理解度も記録しておこう。休憩や娯楽も、あらかじめ決めた時間で楽しもう。</div>
+  <div class="card"><h2>冒険者ステータス</h2><div class="statgrid" id="homeStats"></div><div class="small" style="margin-top:8px">ステータスは勉強によるレベルアップで成長します。</div></div>
+  <div class="notice">勉強XPでレベルアップし、冒険ではGOLDや装備を獲得。ゲーム内の報酬だけでレベルは上がりません。</div>
  </section>
  <section id="quests" class="panel">
-  <div class="card">
-   <h2>クエスト一覧</h2><div class="muted">達成したらXPを獲得できます。</div><div id="questList"></div>
-  </div>
-  <div class="card">
-   <h3>新しいクエストを追加</h3>
-   <label>科目</label><select id="qSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>その他</option></select>
+  <div class="card"><div class="row"><h2>クエスト一覧</h2><span class="pill">編集・破棄OK</span></div><div id="questList"></div></div>
+  <div class="card"><h3>新しいクエストを追加</h3>
+   <label>科目</label><select id="qSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>理科</option><option>その他</option></select>
    <label>クエスト名</label><input id="qName" placeholder="例：青チャートの例題を5問">
-   <label>獲得XP</label><input id="qXP" type="number" min="1" max="500" value="30">
-   <button class="full" id="addQuest" style="margin-top:12px">＋ クエストを追加</button>
+   <label>獲得XP（1〜500）</label><input id="qXP" type="number" min="1" max="500" value="30">
+   <button class="full" id="addQuest" style="margin-top:11px">＋ クエストを追加</button>
   </div>
+  <div class="card"><h3>緊急クエスト</h3><div class="muted">最近学習していない科目を優先して、今日限定の特別クエストを1日1回だけ提示します。</div><div id="urgentArea" style="margin-top:9px"></div><button class="gold full" id="generateUrgent">今日の緊急クエストを確認</button></div>
  </section>
  <section id="report" class="panel">
-  <div class="card">
-   <h2>自由学習を報告</h2>
-   <div class="muted">クエストに登録していない勉強も記録できます。</div>
-   <label>科目</label><select id="rSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>その他</option></select>
+  <div class="card"><h2>自由学習を報告</h2><div class="muted">クエストに登録していない勉強も記録できます。</div>
+   <label>科目</label><select id="rSubject"><option>英語</option><option>数学</option><option>世界史</option><option>国語</option><option>理科</option><option>その他</option></select>
    <label>教材・学習内容</label><input id="rTitle" placeholder="例：青チャート 数学I・A">
    <label>具体的に取り組んだこと</label><textarea id="rDetail" placeholder="例：二次関数の初見問題を解き、解法を復習した"></textarea>
    <label>学習時間（分）</label><input id="rMinutes" type="number" min="1" max="600" value="60">
    <label>学習強度</label><select id="rIntensity"><option value="1">軽め：既習内容の復習・暗記</option><option value="1.25" selected>標準：通常の問題演習・精読</option><option value="1.5">高負荷：初見問題・難問・深い理解</option></select>
    <label>理解度</label><select id="rUnderstanding"><option value="0">あまり進まなかった（+0 XP）</option><option value="3" selected>理解が進んだ（+3 XP）</option><option value="5">よく理解できた（+5 XP）</option></select>
-   <div class="notice" style="margin-top:14px">XP目安：時間（5分ごとに1 XP）×強度係数＋理解度ボーナス。1回の報告は最大300分として計算します。自分を責めず、実際の取り組みに近い強度を選ぼう。</div>
-   <div class="row" style="margin:14px 0"><b>獲得予定XP</b><strong style="font-size:24px;color:var(--green)" id="xpPreview">+18 XP</strong></div>
-   <button class="green full" id="submitReport">学習を報告してXP獲得！</button>
-  </div>
-  <div class="card"><h2>学習履歴</h2><div id="history"></div></div>
+   <div class="notice" style="margin-top:12px">XP目安：時間（5分ごとに1 XP）×強度係数＋理解度ボーナス。1回最大300分で計算します。</div>
+   <div class="row" style="margin:12px 0"><b>獲得予定XP</b><strong style="font-size:23px;color:var(--green)" id="xpPreview">+18 XP</strong></div><button class="green full" id="submitReport">学習を報告してXP獲得！</button>
+  </div><div class="card"><h2>学習履歴</h2><div id="history"></div></div>
  </section>
  <section id="shop" class="panel">
   <div class="card"><div class="row"><h2>ご褒美ショップ</h2><span class="pill"><span id="shopXP">0</span> XP</span></div><div class="muted">勉強のあとに楽しむ時間を、先に決めて交換しよう。</div><div id="rewardList"></div></div>
-  <div class="card"><h3>自分だけの報酬を追加</h3>
-   <label>報酬名</label><input id="rewardName" placeholder="例：好きなゲームを遊ぶ">
-   <label>楽しむ時間</label><input id="rewardTime" placeholder="例：20分">
-   <label>必要XP</label><input id="rewardCost" type="number" min="1" value="25">
-   <button class="full" id="addReward" style="margin-top:12px">報酬を追加</button>
-   <hr><h3>交換履歴</h3><div id="redemptions"></div>
-  </div>
+  <div class="card"><h3>自分だけの報酬を追加</h3><label>報酬名</label><input id="rewardName" placeholder="例：好きなゲームを遊ぶ"><label>楽しむ時間</label><input id="rewardTime" placeholder="例：20分"><label>必要XP</label><input id="rewardCost" type="number" min="1" value="25"><button class="full" id="addReward" style="margin-top:10px">報酬を追加</button><hr><h3>交換履歴</h3><div id="redemptions"></div></div>
+ </section>
+ <section id="rpg" class="panel">
+  <div class="card"><div class="row"><h2>冒険者ギルド</h2><span class="pill"><span id="gold">0</span> GOLD</span></div><div class="statgrid" id="rpgStats"></div><div class="small" style="margin-top:8px">レベルは学習XPでのみ上昇。冒険で得られるのはGOLD・素材・装備です。</div></div>
+  <div class="card" id="battleCard"><h2>冒険に出る</h2><div class="muted">エリアを選んで探索。敵の気質によって先制攻撃・反撃・逃走など行動が変化します。</div><label>探索エリア</label><select id="areaSelect"></select><div id="areaInfo" class="notice" style="margin-top:8px"></div><div class="actiongrid" style="margin-top:10px"><button class="green" id="explore">自由に冒険する</button><button class="gold" id="startDungeon">ダンジョンに挑戦</button></div><div class="small" style="margin-top:8px">1回の探索で遭遇する敵は最大3体。ダンジョンは3階層＋ボスです。</div></div>
+  <div class="card"><h2>装備・所持品</h2><div id="equipment"></div><div id="inventory"></div></div>
+  <div class="card"><h2>スキル</h2><div id="skills"></div></div>
+  <div class="card"><h2>冒険ショップ</h2><div class="muted">GOLDで回復アイテム・装備・スキル書を購入できます。スキル書にはレベル条件があります。</div><div id="rpgShop"></div></div>
+  <div class="card"><h2>冒険ログ</h2><div id="adventureHistory"></div></div>
  </section>
  <section id="settings" class="panel">
-  <div class="card"><h2>データ管理</h2>
-   <p class="muted">データはこのiPhoneのブラウザ内に保存されます。定期的にバックアップしてください。</p>
-   <button class="full" id="exportData">バックアップを書き出す（JSON）</button>
-   <label>バックアップファイルから復元</label><input type="file" id="importFile" accept="application/json">
-   <button class="secondary full" id="resetData" style="margin-top:12px">すべてのデータを初期化</button>
-   <div class="notice" style="margin-top:14px">注意：Safariの履歴・Webサイトデータを消去したり、端末を変更したりするとデータが失われる場合があります。バックアップを別の場所にも保管してください。</div>
-  </div>
-  <div class="card"><h3>アプリについて</h3><p class="muted">Study Quest v1.0 · データ保存は端末内（localStorage）</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
+  <div class="card"><h2>データ管理</h2><p class="muted">データはこのiPhoneのブラウザ内に保存されます。定期的にバックアップしてください。</p><button class="full" id="exportData">バックアップを書き出す（JSON）</button><label>バックアップファイルから復元</label><input type="file" id="importFile" accept="application/json"><button class="secondary full" id="resetData" style="margin-top:11px">すべてのデータを初期化</button><div class="notice" style="margin-top:12px">SafariのWebサイトデータを消去すると記録が失われる場合があります。JSONバックアップを保管してください。</div></div>
+  <div class="card"><h3>アプリについて</h3><p class="muted">Study Quest v2.0 · オフライン対応 · 保存先は端末内</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
  </section>
 </main>
 <nav class="bottom">STUDY QUEST · 小さな積み重ねを、合格への力に。</nav>
 <script>
 const KEY='studyQuest_v1';
+const subjects=['英語','数学','世界史','国語','理科','その他'];
+const baseStats={hp:30,atk:5,def:4,mag:4,res:4};
 const defaultState={
- xp:0,quests:[
-  {id:1,subject:'英語',name:'ターゲット1900を100語復習',xp:30,done:false,day:today()},
-  {id:2,subject:'英語',name:'速読英熟語を1題精読',xp:40,done:false,day:today()},
-  {id:3,subject:'数学',name:'青チャートの例題を5問',xp:50,done:false,day:today()},
-  {id:4,subject:'世界史',name:'古代オリエントを復習',xp:30,done:false,day:today()}
- ],
- logs:[],rewards:[
-  {id:1,name:'ゲームタイム',time:'15分',cost:20,emoji:'🎮'},
-  {id:2,name:'アニメタイム',time:'15分',cost:25,emoji:'📺'},
-  {id:3,name:'動画タイム',time:'15分',cost:15,emoji:'▶️'}
- ],redemptions:[],coach:'今日も一歩ずつ進めよう。まずは小さなクエストから。'
+ xp:0,totalXP:0,gold:0,level:1,stats:{...baseStats},quests:[
+ {id:1,subject:'英語',name:'ターゲット1900を100語復習',xp:30,done:false,day:today()},
+ {id:2,subject:'英語',name:'速読英熟語を1題精読',xp:40,done:false,day:today()},
+ {id:3,subject:'数学',name:'青チャートの例題を5問',xp:50,done:false,day:today()},
+ {id:4,subject:'世界史',name:'世界史用語を復習',xp:30,done:false,day:today()}],
+ logs:[],lastStudied:{},urgentDay:'',urgentId:0,urgentDone:[],rewards:[
+ {id:1,name:'ゲームタイム',time:'15分',cost:20,emoji:'🎮'},{id:2,name:'アニメタイム',time:'15分',cost:25,emoji:'📺'},{id:3,name:'動画タイム',time:'15分',cost:15,emoji:'▶️'}],
+ redemptions:[],inventory:{potion:2,ether:0},equipment:{weapon:null,armor:null,accessory:null},ownedSkills:['strike','guard'],battle:null,dungeon:null,adventureHistory:[],coach:'今日も一歩ずつ。勉強の積み重ねが、冒険者を強くするよ。'
 };
 function today(){return new Date().toLocaleDateString('sv-SE')}
-function load(){try{let x=JSON.parse(localStorage.getItem(KEY));return x&&typeof x==='object'?{...structuredClone(defaultState),...x}:structuredClone(defaultState)}catch{return structuredClone(defaultState)}}
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY));if(!x||typeof x!=='object')return clone(defaultState);let s={...clone(defaultState),...x};s.totalXP=Number.isFinite(s.totalXP)?s.totalXP:(Number(s.xp)||0);s.xp=Number(s.xp)||0;s.stats={...baseStats,...(s.stats||{})};s.inventory={...defaultState.inventory,...(s.inventory||{})};s.equipment={...defaultState.equipment,...(s.equipment||{})};s.lastStudied=s.lastStudied||{};s.urgentDone=s.urgentDone||[];s.ownedSkills=s.ownedSkills||['strike','guard'];s.adventureHistory=s.adventureHistory||[];return s}catch{return clone(defaultState)}}
 let state=load();
 function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function level(){return Math.floor(state.xp/100)+1}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function levelFromXP(){return Math.floor(state.totalXP/100)+1}
+function xpGain(amount){let old=levelFromXP();state.xp+=amount;state.totalXP+=amount;let now=levelFromXP();if(now>old){for(let lv=old+1;lv<=now;lv++)levelUp(lv)}}
+function levelUp(lv){let keys=['hp','atk','def','mag','res'];let weights=[3,2,2,2,2];let k=keys[Math.floor(Math.random()*keys.length)];let gains={hp:5,atk:1,def:1,mag:1,res:1};state.stats[k]+=gains[k];if(k==='hp')state.stats.hpMax=(state.stats.hpMax||30)+5;state.level=lv;
+ let learned=Object.entries(skillData).filter(([id,sk])=>sk.level===lv&&['fire','double','heal','thunder','ice','poison','focus','holy','quake'].includes(id)&&!state.ownedSkills.includes(id));
+ learned.forEach(([id])=>state.ownedSkills.push(id));
+ let learnedText=learned.length?' 新スキル「'+learned.map(([id,sk])=>sk.name).join('」「')+'」を習得！':'';
+ state.adventureHistory.unshift({day:today(),text:`レベルアップ！ Lv.${lv}。${({hp:'最大HP',atk:'攻撃力',def:'防御力',mag:'魔力',res:'魔力抵抗'})[k]} +${gains[k]}。${learnedText}`})}
+const skillData={
+ strike:{name:'強撃',type:'physical',power:1.7,level:1,cost:0,desc:'攻撃力を活かした強い一撃'},
+ guard:{name:'防御',type:'support',power:0,level:1,cost:0,desc:'このターンの被ダメージを大きく軽減'},
+ double:{name:'連続斬り',type:'physical',power:0.85,level:3,cost:65,desc:'小威力の物理攻撃を2回'},
+ fire:{name:'ファイア',type:'magic',element:'炎',power:1.8,level:2,cost:55,desc:'炎属性の魔法攻撃'},
+ heal:{name:'ヒール',type:'heal',power:0.35,level:2,cost:60,desc:'魔力に応じてHPを回復'},
+ thunder:{name:'雷撃',type:'magic',element:'雷',power:2.0,level:4,cost:95,desc:'雷属性の魔法攻撃'},
+ ice:{name:'アイス',type:'magic',element:'氷',power:1.9,level:4,cost:90,desc:'氷属性の魔法攻撃'},
+ poison:{name:'毒刃',type:'physical',element:'毒',power:1.15,level:5,cost:110,desc:'物理攻撃＋毒の追加効果'},
+ focus:{name:'魔力集中',type:'buff',power:1.5,level:5,cost:120,desc:'次の魔法攻撃を強化'},
+ holy:{name:'ホーリー',type:'magic',element:'光',power:2.5,level:8,cost:220,desc:'光属性の強力な魔法'},
+ quake:{name:'アースクエイク',type:'magic',element:'土',power:2.4,level:9,cost:250,desc:'土属性の範囲魔法'}
+};
+const gearData={
+ ironSword:{name:'鉄の剣',slot:'weapon',emoji:'🗡️',price:75,atk:4,def:0,mag:-1,res:0,desc:'攻撃力+4・魔力-1'},
+ oakStaff:{name:'樫の杖',slot:'weapon',emoji:'🪄',price:80,atk:-2,def:0,mag:6,res:0,desc:'魔力+6・攻撃力-2'},
+ bloodBlade:{name:'吸血の剣',slot:'weapon',emoji:'🩸',price:190,atk:7,def:0,mag:0,res:0,desc:'攻撃力+7・与ダメージの一部を回復'},
+ heavyArmor:{name:'重騎士の鎧',slot:'armor',emoji:'🛡️',price:150,atk:0,def:10,mag:0,res:-5,desc:'防御力+10・魔力抵抗-5'},
+ mysticRobe:{name:'賢者のローブ',slot:'armor',emoji:'🥋',price:155,atk:0,def:-2,mag:2,res:8,desc:'防御力-2・魔力+2・魔力抵抗+8'},
+ wardCharm:{name:'守護のお守り',slot:'accessory',emoji:'📿',price:120,atk:0,def:3,mag:0,res:3,desc:'防御力+3・魔力抵抗+3'},
+ emberRing:{name:'炎精の指輪',slot:'accessory',emoji:'🔥',price:175,atk:0,def:-1,mag:4,res:0,desc:'魔力+4・防御力-1'}
+};
+const itemData={potion:{name:'回復薬',emoji:'🧪',price:25,desc:'HPを30回復'},ether:{name:'魔力薬',emoji:'🔹',price:35,desc:'次の魔法ダメージを強化'}};
+const areas=[
+ {id:'meadow',name:'若草の平原',min:1,max:3,desc:'初心者向け。スライムやゴブリンが出現。',enemies:['slime','goblin','wolf']},
+ {id:'forest',name:'深緑の森',min:3,max:6,desc:'毒や奇襲を使う敵が増える。',enemies:['wolf','spider','orc','fairy']},
+ {id:'ruins',name:'古代の遺跡',min:5,max:9,desc:'魔法使いやアンデッドが待ち受ける。',enemies:['skeleton','mage','golem','wraith']},
+ {id:'volcano',name:'紅蓮火山',min:8,max:13,desc:'炎に強い敵もいる。属性の選択が重要。',enemies:['fireImp','drake','golem','wyvern']},
+ {id:'abyss',name:'深淵の境界',min:12,max:20,desc:'強敵ぞろい。装備とスキルを整えて挑もう。',enemies:['wraith','demon','dragon','voidKnight']}
+];
+const enemyData={
+ slime:{name:'スライム',emoji:'🟢',hp:19,atk:4,def:1,mag:1,res:1,weak:['雷'],resist:['水'],ai:'timid',gold:[5,9],xp:0},
+ goblin:{name:'ゴブリン',emoji:'👺',hp:27,atk:6,def:2,mag:1,res:1,ai:'neutral',gold:[8,13]},
+ wolf:{name:'ダイアウルフ',emoji:'🐺',hp:32,atk:8,def:2,mag:1,res:2,ai:'aggressive',gold:[10,16]},
+ spider:{name:'毒グモ',emoji:'🕷️',hp:29,atk:6,def:2,mag:3,res:2,weak:['炎'],ai:'trickster',gold:[12,18],poison:true},
+ orc:{name:'オーク',emoji:'👹',hp:48,atk:10,def:5,mag:1,res:3,ai:'aggressive',gold:[16,23]},
+ fairy:{name:'森の妖精',emoji:'🧚',hp:30,atk:3,def:2,mag:9,res:5,weak:['闇'],resist:['風'],ai:'trickster',gold:[15,22]},
+ skeleton:{name:'スケルトン',emoji:'💀',hp:42,atk:9,def:5,mag:1,res:2,weak:['光'],resist:['毒'],ai:'neutral',gold:[16,25]},
+ mage:{name:'骸骨魔導士',emoji:'🧙',hp:35,atk:4,def:2,mag:11,res:6,weak:['光'],resist:['闇'],ai:'caster',gold:[18,28]},
+ golem:{name:'ロックゴーレム',emoji:'🗿',hp:70,atk:11,def:10,mag:2,res:8,weak:['水'],resist:['雷','土'],ai:'defender',gold:[25,38]},
+ wraith:{name:'亡霊',emoji:'👻',hp:52,atk:7,def:3,mag:12,res:8,weak:['光'],resist:['物理'],ai:'caster',gold:[25,38]},
+ fireImp:{name:'炎の小鬼',emoji:'😈',hp:48,atk:8,def:4,mag:10,res:6,weak:['水','氷'],resist:['炎'],ai:'aggressive',gold:[28,40]},
+ drake:{name:'火山トカゲ',emoji:'🦎',hp:72,atk:13,def:7,mag:8,res:7,weak:['水','氷'],resist:['炎'],ai:'aggressive',gold:[34,48]},
+ wyvern:{name:'ワイバーン',emoji:'🐉',hp:90,atk:15,def:8,mag:10,res:8,weak:['雷'],resist:['風'],ai:'aggressive',gold:[40,58]},
+ demon:{name:'深淵の悪魔',emoji:'👿',hp:100,atk:13,def:8,mag:16,res:12,weak:['光'],resist:['闇'],ai:'trickster',gold:[55,75]},
+ dragon:{name:'古竜',emoji:'🐲',hp:145,atk:19,def:12,mag:17,res:13,weak:['氷'],resist:['炎'],ai:'caster',gold:[80,115]},
+ voidKnight:{name:'虚無の騎士',emoji:'⚔️',hp:125,atk:17,def:14,mag:12,res:14,weak:['光'],resist:['闇','物理'],ai:'defender',gold:[70,100]}
+};
+const elementMap={炎:'炎',水:'水',風:'風',雷:'雷',土:'土',氷:'氷',光:'光',闇:'闇'};
+function equippedStats(){let s={...state.stats};Object.values(state.equipment).forEach(id=>{let g=gearData[id];if(g){s.atk+=g.atk;s.def+=g.def;s.mag+=g.mag;s.res+=g.res}});return s}
+function maxHP(){return state.stats.hpMax||state.stats.hp||30}
+function currentHP(){return state.currentHP==null?maxHP():state.currentHP}
+function setHP(v){state.currentHP=Math.max(0,Math.min(maxHP(),v))}
+function makeEnemy(id,area,dungeon=false){let d=enemyData[id],lv=Math.max(1,Math.min(20,Math.round((areas.find(a=>a.id===area)||areas[0]).min+Math.random()*2)));if(dungeon)lv+=2;let scale=1+(lv-1)*.13;return {id,name:d.name,emoji:d.emoji,level:lv,maxHp:Math.round(d.hp*scale),hp:Math.round(d.hp*scale),atk:Math.round(d.atk*scale),def:Math.round(d.def*scale),mag:Math.round(d.mag*scale),res:Math.round(d.res*scale),weak:d.weak||[],resist:d.resist||[],ai:d.ai,gold:d.gold,poison:d.poison||false,telegraph:'',status:[]}}
+function startEncounter(id,area,dungeon=false){let e=makeEnemy(id,area,dungeon);state.battle={enemy:e,turn:1,logs:[`${e.name}（Lv.${e.level}）が現れた！`],guard:false,focus:false,playerFirst:true,mode:dungeon?'dungeon':'field'};if(e.ai==='aggressive'){state.battle.playerFirst=false;state.battle.logs.push('凶暴な敵が先制攻撃！');enemyTurn(true)}else if(e.ai==='caster'){e.telegraph='spell';state.battle.logs.push(`${e.name}は魔力を集め始めた……`)}else if(e.ai==='timid'){state.battle.logs.push(`${e.name}は様子をうかがっている。攻撃しなければ逃げるかもしれない。`)}save()}
+function addLog(t){if(!state.battle)return;state.battle.logs.push(t);state.battle.logs=state.battle.logs.slice(-12)}
+function playerDamage(type,power,element){let s=equippedStats(),e=state.battle.enemy;let raw=type==='physical'?s.atk*power-e.def*.42:s.mag*power-e.res*.42;let mult=1;if(element&&e.weak.includes(element))mult=1.65;if(element&&e.resist.includes(element))mult=.55;if(type==='physical'&&e.resist.includes('物理'))mult=.55;let damage=Math.max(1,Math.floor(raw*mult*(.9+Math.random()*.2)));e.hp=Math.max(0,e.hp-damage);if(state.equipment.weapon==='bloodBlade')setHP(currentHP()+Math.max(1,Math.floor(damage*.12)));return damage}
+function enemyTurn(preempt=false){let b=state.battle;if(!b||b.enemy.hp<=0)return;let e=b.enemy,s=equippedStats();if(e.hp<=0)return;
+ if(e.ai==='timid'&&b.turn>1&&Math.random()<.35){addLog(`${e.name}は逃げ出した！`);finishBattle(false,true);return}
+ let damage,kind='物理攻撃';if(e.telegraph==='spell'){damage=Math.max(2,Math.floor(e.mag*1.9-s.res*.35));kind='予告していた魔法';e.telegraph='';}
+ else if(e.ai==='caster'&&Math.random()<.45){e.telegraph='spell';addLog(`${e.name}は詠唱を始めた！次の攻撃に備えよう。`);return}
+ else if(e.ai==='trickster'&&Math.random()<.35){damage=Math.max(2,Math.floor(e.mag*1.25-s.res*.35));kind='狡猾な魔法';}
+ else {damage=Math.max(1,Math.floor(e.atk*(e.ai==='aggressive'?1.12:1)-s.def*.38));}
+ if(b.guard){damage=Math.ceil(damage*.35);b.guard=false;addLog('防御姿勢でダメージを軽減！')}
+ if(e.poison&&Math.random()<.22){addLog('毒グモの毒がじわじわ効いている……');damage+=2}
+ setHP(currentHP()-damage);addLog(`${e.name}の${kind}！ ${damage}ダメージ。`);if(currentHP()<=0){addLog('HPが尽きた……ギルドへ帰還した。');finishBattle(false,false,true)}
+}
+function finishBattle(win,escaped=false,fallen=false){let b=state.battle;if(!b)return;let e=b.enemy;if(win){let gold=Math.floor(e.gold[0]+Math.random()*(e.gold[1]-e.gold[0]+1));state.gold+=gold;addLog(`${e.name}を撃破！ ${gold} GOLDを獲得。`);if(Math.random()<.16){state.inventory.ether=(state.inventory.ether||0)+1;addLog('魔力薬を1個見つけた！')}state.adventureHistory.unshift({day:today(),text:`${e.name}を撃破：${gold} GOLD`})}else if(escaped){state.adventureHistory.unshift({day:today(),text:`${e.name}から離脱`})}else if(fallen){setHP(Math.max(1,Math.floor(maxHP()*.4)));state.adventureHistory.unshift({day:today(),text:`${e.name}に敗北。HPを回復して帰還`})}
+ state.battle=null;
+ if(win&&!state.dungeon&&state.exploreQueue&&state.exploreQueue.length){let next=state.exploreQueue.shift();startEncounter(next,state.exploreArea||'meadow',false);return}
+ if(!state.dungeon&&state.exploreQueue&&!state.exploreQueue.length)state.exploreQueue=null;
+ if(state.dungeon){if(win){state.dungeon.floor++;if(state.dungeon.floor>4){state.gold+=80;state.adventureHistory.unshift({day:today(),text:'ダンジョン踏破！ボーナス80 GOLD'});state.dungeon=null;state.coach='ダンジョン踏破おめでとう。勉強で鍛えた力が冒険にもつながったね。'}else state.coach=`第${state.dungeon.floor-1}階を突破。次の階層へ進めるよ。`}else state.dungeon=null}save()}
+function actionTurn(action,skillId){let b=state.battle;if(!b)return;let e=b.enemy;if(action==='run'){addLog('戦闘から離脱した。');finishBattle(false,true);return}
+ if(action==='guard'){b.guard=true;addLog('身構えて防御した。');enemyTurn();b.turn++;save();return}
+ if(action==='item'){if(state.inventory.potion>0){state.inventory.potion--;setHP(currentHP()+30);addLog('回復薬を使用。HPを回復した。')}else{addLog('回復薬を持っていない！');save();return}}
+ else if(action==='skill'){let sk=skillData[skillId];if(!sk||!state.ownedSkills.includes(skillId)){return}if(sk.type==='support'){b.guard=true;addLog('防御姿勢を取った。')}else if(sk.type==='heal'){let heal=Math.floor(equippedStats().mag*sk.power+12);setHP(currentHP()+heal);addLog(`ヒール！ HPが${heal}回復。`)}else if(sk.type==='buff'){b.focus=true;addLog('魔力集中！次の魔法が強化される。')}else{let p=sk.power*(b.focus?1.5:1);let d=playerDamage(sk.type,p,sk.element);b.focus=false;addLog(`${sk.name}！ ${d}ダメージ${sk.element?'（'+sk.element+'属性）':''}。`);if(sk.id==='poison'&&Math.random()<.35)addLog('敵に毒を与えた！');if(sk.name==='連続斬り'){let d2=playerDamage('physical',sk.power, null);addLog(`追撃！ ${d2}ダメージ。`)}}}
+ else if(action==='attack'){let d=playerDamage('physical',1,null);addLog(`剣で攻撃！ ${d}ダメージ。`)}
+ if(e.hp<=0){finishBattle(true);return}enemyTurn();b.turn++;save()}
+function renderBattle(){let el=document.getElementById('battleCard');if(!state.battle){el.innerHTML=`<h2>${state.dungeon?'ダンジョン探索中':'冒険に出る'}</h2><div class="muted">${state.dungeon?`第${state.dungeon.floor}階を突破中。次の敵に挑もう。`:'エリアを選んで探索。敵の気質によって先制攻撃・反撃・逃走など行動が変化します。'}</div>${state.dungeon?'<button class="green full" id="nextDungeon">次の階へ進む</button><button class="secondary full" id="leaveDungeon" style="margin-top:7px">ダンジョンから撤退</button>':`<label>探索エリア</label><select id="areaSelect">${areas.map(a=>`<option value="${a.id}">${a.name}（推奨Lv.${a.min}〜${a.max}）</option>`).join('')}</select><div id="areaInfo" class="notice" style="margin-top:8px"></div><div class="actiongrid" style="margin-top:10px"><button class="green" id="explore">自由に冒険する</button><button class="gold" id="startDungeon">ダンジョンに挑戦</button></div><div class="small" style="margin-top:8px">1回の探索で遭遇する敵は最大3体。ダンジョンは3階層＋ボスです。</div>`}`;wireExplore();return}
+ let b=state.battle,e=b.enemy;let tele=e.telegraph?'<div class="danger-note">⚠️ 敵が強力な魔法を準備中！次のターンに攻撃してくる。</div>':'';el.innerHTML=`<div class="row"><h2>⚔️ 戦闘中</h2><span class="pill">ターン ${b.turn}</span></div><div class="enemy"><div class="enemy-head"><div class="monster">${e.emoji}</div><div style="flex:1"><b>${esc(e.name)} Lv.${e.level}</b><div class="hp">HP ${e.hp} / ${e.maxHp}</div><div class="hpbar"><span style="width:${Math.max(0,e.hp/e.maxHp*100)}%"></span></div><div class="small">弱点：${e.weak.join('・')||'なし'} ／ 耐性：${e.resist.join('・')||'なし'}</div></div></div></div><div class="row"><b>あなた</b><span class="small">HP ${currentHP()} / ${maxHP()}</span></div><div class="hpbar"><span style="width:${currentHP()/maxHP()*100}%"></span></div>${tele}<div class="log" id="battleLog">${b.logs.map(x=>`・${esc(x)}`).join('<br>')}</div><div class="actiongrid"><button class="green" id="battleAttack">物理攻撃</button><button id="battleMagic">スキルを選ぶ</button><button class="secondary" id="battleGuard">防御</button><button class="secondary" id="battleItem">回復薬（${state.inventory.potion}）</button><button class="secondary" id="battleEther" style="grid-column:span 2">魔力薬（${state.inventory.ether||0}）</button><button class="danger" id="battleRun" style="grid-column:span 2">逃走する</button></div><div id="skillPicker"></div>`;
+ document.getElementById('battleAttack').onclick=()=>actionTurn('attack');document.getElementById('battleGuard').onclick=()=>actionTurn('guard');document.getElementById('battleItem').onclick=()=>actionTurn('item');
+ document.getElementById('battleEther').onclick=()=>{if(state.inventory.ether>0){let activeBattle=state.battle;state.inventory.ether--;activeBattle.focus=true;addLog('魔力薬を使用。次の魔法攻撃が強化される。');enemyTurn();if(state.battle){activeBattle.turn++;save()}}else alert('魔力薬を持っていません。')};document.getElementById('battleRun').onclick=()=>actionTurn('run');document.getElementById('battleMagic').onclick=()=>{let picker=document.getElementById('skillPicker');picker.innerHTML='<div class="skill"><b>使用するスキル</b>'+state.ownedSkills.map(id=>{let sk=skillData[id];return `<button class="secondary full" style="margin-top:6px" data-skill="${id}">${esc(sk.name)} · ${esc(sk.desc)}</button>`}).join('')+'</div>';picker.querySelectorAll('[data-skill]').forEach(x=>x.onclick=()=>actionTurn('skill',x.dataset.skill))};
+}
+function wireExplore(){let sel=document.getElementById('areaSelect');if(!sel)return;let update=()=>{let a=areas.find(x=>x.id===sel.value);document.getElementById('areaInfo').textContent=`推奨レベル：${a.min}〜${a.max} ／ ${a.desc}`};sel.onchange=update;update();let start=(dungeon)=>{let a=areas.find(x=>x.id===sel.value);if(state.battle)return;if(dungeon){if(levelFromXP()<a.min){alert(`このダンジョンの推奨レベルは${a.min}以上です。`);return}state.dungeon={area:a.id,floor:1};startEncounter(a.enemies[Math.floor(Math.random()*a.enemies.length)],a.id,true)}else{let count=1+Math.floor(Math.random()*3);state.exploreQueue=[];state.exploreArea=a.id;for(let i=0;i<count;i++)state.exploreQueue.push(a.enemies[Math.floor(Math.random()*a.enemies.length)]);startEncounter(state.exploreQueue.shift(),a.id)}};
+ let ex=document.getElementById('explore'),du=document.getElementById('startDungeon');if(ex)ex.onclick=()=>start(false);if(du)du.onclick=()=>start(true);
+ let next=document.getElementById('nextDungeon');if(next)next.onclick=()=>{let a=areas.find(x=>x.id===state.dungeon.area);let id=state.dungeon.floor===3?'dragon':a.enemies[Math.floor(Math.random()*a.enemies.length)];startEncounter(id,a.id,true)};
+ let leave=document.getElementById('leaveDungeon');if(leave)leave.onclick=()=>{state.dungeon=null;state.battle=null;save()};
+}
 function render(){
- const xp=state.xp||0,rem=xp%100;
- document.getElementById('level').textContent='Lv.'+level();
- document.getElementById('xp').textContent=xp;
- document.getElementById('toNext').textContent=100-rem;
- document.getElementById('xpProgress').style.width=rem+'%';
- document.getElementById('coachText').textContent=state.coach;
- const todayLogs=state.logs.filter(x=>x.day===today());
- const todayQuests=state.quests.filter(x=>x.day===today());
- const done=todayQuests.filter(x=>x.done).length;
- document.getElementById('todayTime').textContent=todayLogs.reduce((a,x)=>a+x.minutes,0)+'分';
- document.getElementById('todayXP').textContent=todayLogs.reduce((a,x)=>a+x.xp,0)+state.quests.filter(x=>x.done&&x.completedDay===today()).reduce((a,x)=>a+x.xp,0);
- document.getElementById('questCount').textContent=done+' / '+todayQuests.length;
- document.getElementById('questProgress').style.width=(todayQuests.length?done/todayQuests.length*100:0)+'%';
+ let xp=state.xp||0,level=levelFromXP(),rem=state.totalXP%100;
+ document.getElementById('level').textContent='Lv.'+level;document.getElementById('xp').textContent=xp;document.getElementById('totalXP').textContent=state.totalXP;document.getElementById('toNext').textContent=100-rem;document.getElementById('xpProgress').style.width=rem+'%';document.getElementById('coachText').textContent=state.coach;
+ let todayLogs=state.logs.filter(x=>x.day===today()),todayQuests=state.quests.filter(x=>x.day===today()),done=todayQuests.filter(x=>x.done).length;
+ document.getElementById('todayTime').textContent=todayLogs.reduce((a,x)=>a+x.minutes,0)+'分';document.getElementById('todayXP').textContent=todayLogs.reduce((a,x)=>a+x.xp,0)+state.quests.filter(x=>x.done&&x.completedDay===today()).reduce((a,x)=>a+x.xp,0);document.getElementById('questCount').textContent=done+' / '+todayQuests.length;document.getElementById('questProgress').style.width=(todayQuests.length?done/todayQuests.length*100:0)+'%';
  document.getElementById('todayLogs').innerHTML=todayLogs.length?todayLogs.slice().reverse().map(x=>`<div class="history"><b>${esc(x.title)}</b><div class="small">${esc(x.subject)} · ${x.minutes}分 · +${x.xp} XP</div></div>`).join(''):'<div class="empty">今日の学習報告はまだありません。</div>';
- document.getElementById('questList').innerHTML=state.quests.slice().reverse().map(q=>`<div class="task ${q.done?'done':''}"><div class="row"><span class="pill">${esc(q.subject)}</span><b style="color:var(--green)">+${q.xp} XP</b></div><p>${esc(q.name)}</p>${q.done?'<span class="small">✓ 達成済み</span>':`<button class="green full" data-complete="${q.id}">クエスト達成</button>`}</div>`).join('')||'<div class="empty">クエストはありません。</div>';
- document.querySelectorAll('[data-complete]').forEach(b=>b.onclick=()=>{let q=state.quests.find(x=>x.id===Number(b.dataset.complete));if(q&&!q.done){q.done=true;q.completedDay=today();state.xp+=q.xp;state.coach='いい調子だね。達成したことを記録できたよ。次も自分のペースで進めよう。';save()}});
- document.getElementById('history').innerHTML=state.logs.length?state.logs.slice().reverse().map(x=>`<div class="history"><div class="row"><b>${esc(x.title)}</b><b style="color:var(--green)">+${x.xp} XP</b></div><div class="small">${esc(x.subject)} · ${x.day} · ${x.minutes}分 · ${esc(x.intensity)}</div><div style="font-size:13px;margin-top:5px">${esc(x.detail)}</div></div>`).join(''):'<div class="empty">まだ学習履歴はありません。</div>';
- document.getElementById('shopXP').textContent=xp;
- document.getElementById('rewardList').innerHTML=state.rewards.map(r=>`<div class="reward"><div class="emoji">${r.emoji||'🎁'}</div><div class="info"><strong>${esc(r.name)}</strong><span class="small">${esc(r.time)} · ${r.cost} XP</span></div><button ${xp<r.cost?'disabled':''} data-redeem="${r.id}">交換</button></div>`).join('');
- document.querySelectorAll('[data-redeem]').forEach(b=>b.onclick=()=>{let r=state.rewards.find(x=>x.id===Number(b.dataset.redeem));if(r&&state.xp>=r.cost){state.xp-=r.cost;state.redemptions.push({name:r.name,time:r.time,cost:r.cost,day:today()});state.coach='報酬を交換したね。楽しむ時間も大切に。終わったら次の予定に戻ろう。';save()}});
+ let ss=equippedStats();document.getElementById('homeStats').innerHTML=`<div class="mini">最大HP<b>${maxHP()}</b></div><div class="mini">攻撃力<b>${ss.atk}</b></div><div class="mini">防御力<b>${ss.def}</b></div><div class="mini">魔力<b>${ss.mag}</b></div><div class="mini">魔力抵抗<b>${ss.res}</b></div>`;
+ document.getElementById('questList').innerHTML=state.quests.filter(q=>!q.urgent||q.day===today()).slice().reverse().map(q=>`<div class="task ${q.done?'done':''}"><div class="row"><span class="pill">${esc(q.subject)}${q.urgent?' · 緊急':''}</span><b style="color:var(--green)">+${q.xp} XP</b></div><p>${esc(q.name)}</p><div class="row wrap">${q.done?'<span class="small">✓ 達成済み</span>':`<button class="green" data-complete="${q.id}">達成</button>`}<button class="secondary" data-edit="${q.id}">編集</button><button class="danger" data-delete="${q.id}">破棄</button></div></div>`).join('')||'<div class="empty">クエストはありません。</div>';
+ document.querySelectorAll('[data-complete]').forEach(b=>b.onclick=()=>{let q=state.quests.find(x=>x.id===Number(b.dataset.complete));if(q&&!q.done){q.done=true;q.completedDay=today();xpGain(q.xp);if(q.urgent)state.urgentDone.push(today());state.coach='クエスト達成！一つずつ積み上げていこう。';save()}});
+ document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{let q=state.quests.find(x=>x.id===Number(b.dataset.delete));if(q&&confirm('このクエストを破棄しますか？')){state.quests=state.quests.filter(x=>x.id!==q.id);save()}});
+ document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{let q=state.quests.find(x=>x.id===Number(b.dataset.edit));if(!q)return;let name=prompt('クエスト名',q.name);if(name===null)return;let reward=prompt('獲得XP（1〜500）',q.xp);if(reward===null)return;let n=Number(reward);if(!name.trim()||!Number.isFinite(n)||n<1||n>500){alert('名前と1〜500のXPを入力してください。');return}q.name=name.trim();q.xp=Math.floor(n);save()});
+ document.getElementById('history').innerHTML=state.logs.length?state.logs.slice().reverse().map(x=>`<div class="history"><div class="row"><b>${esc(x.title)}</b><b style="color:var(--green)">+${x.xp} XP</b></div><div class="small">${esc(x.subject)} · ${x.day} · ${x.minutes}分 · ${esc(x.intensity)}</div><div style="font-size:12px;margin-top:5px">${esc(x.detail)}</div></div>`).join(''):'<div class="empty">まだ学習履歴はありません。</div>';
+ document.getElementById('shopXP').textContent=xp;document.getElementById('rewardList').innerHTML=state.rewards.map(r=>`<div class="reward"><div class="emoji">${r.emoji||'🎁'}</div><div class="info"><strong>${esc(r.name)}</strong><span class="small">${esc(r.time)} · ${r.cost} XP</span></div><button ${xp<r.cost?'disabled':''} data-redeem="${r.id}">交換</button></div>`).join('');
+ document.querySelectorAll('[data-redeem]').forEach(b=>b.onclick=()=>{let r=state.rewards.find(x=>x.id===Number(b.dataset.redeem));if(r&&state.xp>=r.cost){state.xp-=r.cost;state.redemptions.push({name:r.name,time:r.time,cost:r.cost,day:today()});state.coach='報酬を交換したね。楽しむ時間も大切に。';save()}});
  document.getElementById('redemptions').innerHTML=state.redemptions.length?state.redemptions.slice().reverse().map(r=>`<div class="history"><b>${esc(r.name)}</b><div class="small">${esc(r.time)} · ${r.cost} XP · ${r.day}</div></div>`).join(''):'<div class="empty">交換履歴はありません。</div>';
+ document.getElementById('gold').textContent=state.gold;document.getElementById('rpgStats').innerHTML=`<div class="mini">HP<b>${currentHP()} / ${maxHP()}</b></div><div class="mini">攻撃力<b>${ss.atk}</b></div><div class="mini">防御力<b>${ss.def}</b></div><div class="mini">魔力<b>${ss.mag}</b></div><div class="mini">魔力抵抗<b>${ss.res}</b></div>`;
+ document.getElementById('equipment').innerHTML='<h3>装備中</h3>'+['weapon','armor','accessory'].map(slot=>{let id=state.equipment[slot],g=gearData[id];return `<div class="gear"><b>${({weapon:'武器',armor:'防具',accessory:'アクセサリー'})[slot]}：</b>${g?g.emoji+' '+g.name:'なし'} ${g?`<div class="small">${g.desc}</div><button class="secondary" data-unequip="${slot}" style="margin-top:6px">外す</button>`:''}</div>`}).join('')+'<h3 style="margin-top:10px">所持している装備</h3>'+Object.entries(gearData).filter(([id])=>(state.inventory[id]||0)>0).map(([id,g])=>`<div class="gear"><div class="row"><div><b>${g.emoji} ${g.name}</b><div class="small">${g.desc} · ${state.inventory[id]}個</div></div><button class="green" data-equip="${id}">装備</button></div></div>`).join('');
+ document.querySelectorAll('[data-unequip]').forEach(b=>b.onclick=()=>{state.equipment[b.dataset.unequip]=null;save()});
+ document.querySelectorAll('[data-equip]').forEach(b=>b.onclick=()=>{let id=b.dataset.equip,g=gearData[id];if(g&&(state.inventory[id]||0)>0){state.inventory[id]--;state.equipment[g.slot]=id;save()}});
+ document.getElementById('inventory').innerHTML='<h3 style="margin-top:10px">所持品</h3>'+Object.keys(itemData).map(id=>`<div class="row small" style="padding:5px 0">${itemData[id].emoji} ${itemData[id].name}：${state.inventory[id]||0}個</div>`).join('');
+ document.getElementById('skills').innerHTML=Object.keys(skillData).filter(id=>state.ownedSkills.includes(id)).map(id=>{let sk=skillData[id];return `<div class="skill"><b>${sk.name}</b> <span class="pill">${sk.type==='physical'?'物理':sk.type==='magic'?'魔法':sk.type==='heal'?'回復':'補助'}</span><div class="small">${sk.desc}</div></div>`}).join('');
+ document.getElementById('rpgShop').innerHTML=Object.entries(itemData).map(([id,x])=>`<div class="reward"><div class="emoji">${x.emoji}</div><div class="info"><strong>${x.name}</strong><span class="small">${x.desc} · ${x.price} GOLD</span></div><button data-buy-item="${id}" ${state.gold<x.price?'disabled':''}>購入</button></div>`).join('')+Object.entries(gearData).map(([id,g])=>`<div class="reward"><div class="emoji">${g.emoji}</div><div class="info"><strong>${g.name}</strong><span class="small">${g.desc} · ${g.price} GOLD</span></div><button data-buy-gear="${id}" ${state.gold<g.price?'disabled':''}>購入</button></div>`).join('')+Object.entries(skillData).filter(([id,sk])=>!state.ownedSkills.includes(id)&&sk.cost>0).map(([id,sk])=>`<div class="reward"><div class="emoji">📘</div><div class="info"><strong>${sk.name}</strong><span class="small">必要Lv.${sk.level} · ${sk.cost} GOLD · ${sk.desc}</span></div><button data-buy-skill="${id}" ${state.gold<sk.cost||level<sk.level?'disabled':''}>購入</button></div>`).join('');
+ document.querySelectorAll('[data-buy-item]').forEach(b=>b.onclick=()=>{let id=b.dataset.buyItem,x=itemData[id];if(state.gold>=x.price){state.gold-=x.price;state.inventory[id]++;save()}});
+ document.querySelectorAll('[data-buy-gear]').forEach(b=>b.onclick=()=>{let id=b.dataset.buyGear,g=gearData[id];if(state.gold>=g.price){state.gold-=g.price;state.inventory[id]=(state.inventory[id]||0)+1;save()}});
+ document.querySelectorAll('[data-buy-skill]').forEach(b=>b.onclick=()=>{let id=b.dataset.buySkill,sk=skillData[id];if(state.gold>=sk.cost&&level>=sk.level){state.gold-=sk.cost;state.ownedSkills.push(id);save()}});
+ document.getElementById('adventureHistory').innerHTML=state.adventureHistory.length?state.adventureHistory.slice(0,12).map(x=>`<div class="history"><div class="small">${x.day}</div>${esc(x.text)}</div>`).join(''):'<div class="empty">まだ冒険の記録はありません。</div>';
+ renderBattle();
+ let urgent=document.getElementById('urgentArea');if(state.urgentDay===today()){let q=state.quests.find(x=>x.id===state.urgentId);urgent.innerHTML=q?`<div class="notice">${q.done?'達成済み！':'本日の緊急クエスト：'} ${esc(q.name)}（+${q.xp} XP）</div>`:'<div class="small">今日の緊急クエストは終了しました。</div>'}else urgent.innerHTML='<div class="small">ボタンを押すと、最近学習していない科目から今日の特別クエストを作成します。</div>';
 }
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')});
 document.getElementById('addQuest').onclick=()=>{let name=document.getElementById('qName').value.trim(),xp=Math.max(1,Math.min(500,Number(document.getElementById('qXP').value)||30));if(!name)return;state.quests.push({id:Date.now(),subject:document.getElementById('qSubject').value,name,xp,done:false,day:today()});document.getElementById('qName').value='';save()};
+document.getElementById('generateUrgent').onclick=()=>{if(state.urgentDay===today()){alert('緊急クエストは1日1回までです。');return}let last=state.lastStudied||{};let ranked=subjects.filter(s=>s!=='その他').sort((a,b)=>(last[a]||'2000-01-01').localeCompare(last[b]||'2000-01-01'));let subject=ranked[0];let templates={'英語':'英単語・英熟語を集中復習','数学':'苦手単元の基本例題に取り組む','世界史':'重要用語と時代の流れを復習','国語':'現代文または古文を1題演習','理科':'重要事項・基本問題を復習'};let q={id:Date.now(),subject,name:templates[subject]||'学習の遅れている範囲を復習',xp:55,done:false,day:today(),urgent:true};state.quests.push(q);state.urgentDay=today();state.urgentId=q.id;state.coach=`今日は${subject}の緊急クエストを用意したよ。無理のない範囲で片付けよう。`;save()};
 function calcXP(){let m=Math.max(0,Math.min(300,Number(document.getElementById('rMinutes').value)||0)),factor=Number(document.getElementById('rIntensity').value),bonus=Number(document.getElementById('rUnderstanding').value);return m?Math.floor(m/5*factor)+bonus:0}
 function updatePreview(){document.getElementById('xpPreview').textContent='+'+calcXP()+' XP'}
 ['rMinutes','rIntensity','rUnderstanding'].forEach(id=>document.getElementById(id).addEventListener('input',updatePreview));
-document.getElementById('submitReport').onclick=()=>{let title=document.getElementById('rTitle').value.trim(),detail=document.getElementById('rDetail').value.trim(),minutes=Number(document.getElementById('rMinutes').value);if(!title||!detail||!minutes||minutes<1){alert('教材・内容・学習時間を入力してください。');return}let factor=Number(document.getElementById('rIntensity').value),under=Number(document.getElementById('rUnderstanding').value),xp=calcXP();let intensity=document.getElementById('rIntensity').selectedOptions[0].text.split('：')[0];state.logs.push({id:Date.now(),subject:document.getElementById('rSubject').value,title,detail,minutes,xp,intensity,day:today()});state.xp+=xp;state.coach='学習報告を受け取ったよ。取り組んだ内容を言葉にできたのも大切な成果だね。';document.getElementById('rTitle').value='';document.getElementById('rDetail').value='';save();alert('+'+xp+' XP 獲得！')};
+document.getElementById('submitReport').onclick=()=>{let title=document.getElementById('rTitle').value.trim(),detail=document.getElementById('rDetail').value.trim(),minutes=Number(document.getElementById('rMinutes').value);if(!title||!detail||!minutes||minutes<1){alert('教材・内容・学習時間を入力してください。');return}let xp=calcXP(),intensity=document.getElementById('rIntensity').selectedOptions[0].text.split('：')[0],subject=document.getElementById('rSubject').value;state.logs.push({id:Date.now(),subject,title,detail,minutes,xp,intensity,day:today()});state.lastStudied[subject]=today();xpGain(xp);state.coach='学習報告を受け取ったよ。今日の積み重ねが冒険者の力になったね。';document.getElementById('rTitle').value='';document.getElementById('rDetail').value='';save();alert('+'+xp+' XP 獲得！')};
 document.getElementById('addReward').onclick=()=>{let name=document.getElementById('rewardName').value.trim(),time=document.getElementById('rewardTime').value.trim(),cost=Math.max(1,Math.min(10000,Number(document.getElementById('rewardCost').value)||25));if(!name||!time)return;state.rewards.push({id:Date.now(),name,time,cost,emoji:'🎁'});document.getElementById('rewardName').value='';document.getElementById('rewardTime').value='';save()};
 document.getElementById('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='study-quest-backup-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
-document.getElementById('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x||typeof x.xp!=='number'||!Array.isArray(x.logs)||!Array.isArray(x.quests)||!Array.isArray(x.rewards))throw Error();if(confirm('現在のデータをバックアップ内容で置き換えますか？')){state={...structuredClone(defaultState),...x};save();alert('復元しました')}}catch{alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
-document.getElementById('resetData').onclick=()=>{if(confirm('すべての学習記録・XP・クエストを削除します。先にバックアップしましたか？')&&confirm('本当に初期化しますか？')){state=structuredClone(defaultState);save()}};
+document.getElementById('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x||typeof x.xp!=='number'||!Array.isArray(x.logs)||!Array.isArray(x.quests)||!Array.isArray(x.rewards))throw Error();if(confirm('現在のデータをバックアップ内容で置き換えますか？')){state={...clone(defaultState),...x};state.stats={...baseStats,...(x.stats||{})};state.inventory={...defaultState.inventory,...(x.inventory||{})};state.equipment={...defaultState.equipment,...(x.equipment||{})};save();alert('復元しました')}}catch{alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
+document.getElementById('resetData').onclick=()=>{if(confirm('すべての学習記録・XP・冒険データを削除しますか？')&&confirm('本当に初期化しますか？')){state=clone(defaultState);save()}};
 document.getElementById('showInstall').onclick=()=>alert('SafariでこのアプリのURLを開き、共有ボタン →「ホーム画面に追加」→「追加」を選んでください。');
 render();updatePreview();
-if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script>
-</body>
-</html>
+</body></html>
