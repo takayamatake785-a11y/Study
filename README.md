@@ -29,3 +29,12 @@ The app continues using localStorage key `studyQuest_v1`; existing v4 data is re
 
 ## Validation
 JavaScript syntax checks and ZIP integrity checks were run. Full iPhone/Safari end-to-end interaction testing has not been completed; after deployment, test recruitment, naming, party commands, capture, and evolution with a JSON backup safely stored first.
+
+
+## Study Quest v6.0 — Visual Upgrade
+- Added 16 dedicated WebP monster portraits in `assets/monsters/`.
+- Goblin, oni, dwarf, and slime families now use dedicated art across their existing evolution stages.
+- Bestiary cards, battle portraits, companion cards, and evolution trees share the same portrait assets.
+- Wolf, undead, spirit, and dragon families retain their v5 artwork in this first visual pass; their dedicated evolution art is planned for a follow-up visual pack.
+- Existing local save key (`studyQuest_v1`) is preserved to support v5 save-data continuity.
+- Service worker cache updated to `study-quest-v6` and pre-caches all monster portraits.
