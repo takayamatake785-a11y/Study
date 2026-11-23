@@ -48,3 +48,13 @@ JavaScript syntax checks and ZIP integrity checks were run. Full iPhone/Safari e
 - 鬼の女性専用進化「妖鬼」を追加
 - ゴブリン・鬼・ドワーフの新規イラストを追加
 - 既存の localStorage キー studyQuest_v1 を維持
+
+
+## v7.2
+- おやつと魔物の封印札を所持XP限定に変更
+- 全滅時の固定5 GOLDペナルティ
+- 仲間の初期能力を調整し、回復にMP消費・戦闘中2回制限を追加
+- 髪・目だけの外見変化と段階的な色変化表示
+- 仲間画面の簡易表示／全表示切替
+- 紺色系UIテーマに統一
+- 既存の `studyQuest_v1` セーブキーを維持

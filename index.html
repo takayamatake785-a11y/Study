@@ -8,18 +8,18 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Study Quest">
 <link rel="manifest" href="manifest.webmanifest">
-<title>Study Quest v7.0</title>
+<title>Study Quest v7.2</title>
 <style>
-:root{--navy:#090b10;--gold:#d6d6d6;--green:#bfc7d2;--bg:#080a0e;--card:#11151c;--muted:#a4aab5;--line:#39404b;--red:#a94b55;--blue:#aab4c2}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#242a35 0%,#0a0c11 52%,#050609 100%);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;color:#e8e9ed;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
-header{background:linear-gradient(135deg,#080a0e,#202630 55%,#080a0e);color:#f4f4f5;border-bottom:1px solid #737b87;box-shadow:0 8px 30px #0009;padding:calc(17px + env(safe-area-inset-top)) 17px 17px}
+:root{--navy:#14233b;--gold:#d9c18b;--green:#9fc6b4;--bg:#0c1728;--card:#142238;--muted:#b4c0d2;--line:#354965;--red:#a94b55;--blue:#91b4df}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#344b70 0%,#172945 42%,#0a1424 100%);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;color:#e8e9ed;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+header{background:linear-gradient(135deg,#101d32,#263d60 55%,#101d32);color:#f4f4f5;border-bottom:1px solid #737b87;box-shadow:0 8px 30px #0009;padding:calc(17px + env(safe-area-inset-top)) 17px 17px}
 .brand{font-size:11px;letter-spacing:2px;color:#c3cfdf;font-weight:800}.hero{display:flex;gap:13px;align-items:center;margin-top:13px}.avatar{width:62px;height:62px;border-radius:18px;background:#405675;display:grid;place-items:center;font-size:30px;border:1px solid #637b9b}
 h1{font-size:21px;margin:0 0 4px}.sub{font-size:12px;color:#d1dbea}.xpbar{height:8px;background:#536781;border-radius:20px;overflow:hidden;margin-top:8px}.xpbar span{display:block;height:100%;background:var(--gold);width:0}
-.coach{background:#293a54;border-radius:13px;padding:10px 12px;margin-top:13px;font-size:12px;line-height:1.6}.coach b{color:#f1d995}
+ .coach{background:#243a5b;border-radius:13px;padding:10px 12px;margin-top:13px;font-size:12px;line-height:1.6}.coach b{color:#f1d995}
 main{padding:13px;max-width:760px;margin:auto}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:13px}
 .tab{border:0;background:#171c25;color:#bfc5cf;border:1px solid #3f4753;padding:10px 4px;border-radius:2px;font-size:12px;font-weight:800;letter-spacing:.04em}
 .tab.active{background:#d9dde4;color:#090b10;border-color:#f3f4f6}.panel{display:none}.panel.active{display:block}
-.card{background:linear-gradient(145deg,#151a22,#0d1016);border:1px solid #515965;border-radius:4px;padding:14px;margin-bottom:12px;box-shadow:inset 0 0 0 1px #ffffff08,0 8px 24px #0008}
+.card{background:linear-gradient(145deg,#1a2b44,#101c30);border:1px solid #515965;border-radius:4px;padding:14px;margin-bottom:12px;box-shadow:inset 0 0 0 1px #ffffff08,0 8px 24px #0008}
 h2{font-size:17px;margin:0 0 11px}h3{font-size:14px;margin:0 0 8px}.muted{color:var(--muted);font-size:12px;line-height:1.55}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:#1a202a;border:1px solid #343c48;border-radius:3px;padding:11px}.stat strong{display:block;font-size:22px;margin-top:4px}
 .progress{height:9px;border-radius:20px;background:#e9edf2;overflow:hidden}.progress span{display:block;height:100%;background:#aeb6c2}
@@ -53,6 +53,20 @@ nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#0a0c11;border-top:
 @keyframes battleFlash{0%{filter:brightness(1.8)}100%{filter:brightness(1)}}@keyframes slashFx{0%{opacity:0;transform:scale(.2) rotate(-35deg)}35%{opacity:1;transform:scale(1.2) rotate(20deg)}100%{opacity:0;transform:scale(1.8) rotate(45deg)}}
 .reward .info{min-width:0}.reward .delete-reward{padding:8px 9px;background:#332126;color:#f3dfe2;border:1px solid #81515b}
 .section-title{font-family:"Yu Mincho","Noto Serif JP",serif;letter-spacing:.12em;text-shadow:0 1px 8px #fff3}
+
+/* v7.2 navy visual system and isolated appearance overlays */
+.companion-card{background:linear-gradient(155deg,#192b45,#101d31);border-color:#526b8d}
+.companion-art{position:relative;background:linear-gradient(145deg,#263f62,#12213a)}
+.appearance-hair-tint,.appearance-eye-tint{position:absolute;inset:0;pointer-events:none;mix-blend-mode:color;opacity:var(--tint-opacity,.56)}
+.appearance-hair-tint{clip-path:polygon(30% 7%,70% 7%,83% 18%,79% 31%,67% 37%,58% 31%,50% 29%,42% 31%,33% 37%,21% 31%,17% 18%);background:var(--tint)}
+.appearance-eye-tint{clip-path:polygon(31% 42%,43% 40%,49% 43%,56% 40%,69% 42%,68% 48%,55% 49%,49% 47%,43% 49%,32% 48%);background:var(--tint);opacity:var(--tint-opacity,.78)}
+.companion-layout-tools{display:flex;gap:7px;margin:8px 0 12px}
+.companion-layout-tools button{flex:1;font-size:12px;padding:9px 5px}
+#companionHub.compact-view .companion-card>.companion-muted:nth-of-type(n+5),
+#companionHub.compact-view .companion-card>.evolve-box{display:none}
+#companionHub.compact-view .companion-card .bond-bar{display:none}
+#companionHub.compact-view .companion-card .companion-actions{margin-top:7px}
+#companionHub .companion-card{box-shadow:0 5px 18px #050d1b66}
 </style>
 </head>
 <body>
@@ -121,7 +135,7 @@ nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#0a0c11;border-top:
  </section>
  <section id="settings" class="panel">
   <div class="card"><h2 class="section-title">データ管理</h2><p class="muted">データはこのiPhoneのブラウザ内に保存されます。定期的にバックアップしてください。</p><button class="full" id="exportData">バックアップを書き出す（JSON）</button><label>バックアップファイルから復元</label><input type="file" id="importFile" accept="application/json"><button class="secondary full" id="resetData" style="margin-top:11px">すべてのデータを初期化</button><div class="notice" style="margin-top:12px">SafariのWebサイトデータを消去すると記録が失われる場合があります。JSONバックアップを保管してください。</div></div>
-  <div class="card"><h3 class="section-title">アプリについて</h3><p class="muted">Study Quest v7.0 · ビジュアル強化・仲間・親密度・進化・パーティ戦闘 · 保存先は端末内</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
+  <div class="card"><h3 class="section-title">アプリについて</h3><p class="muted">Study Quest v7.2 · ビジュアル強化・仲間・親密度・進化・パーティ戦闘 · 保存先は端末内</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
  </section>
 </main>
 <nav class="bottom">STUDY QUEST · 小さな積み重ねを、合格への力に。</nav>
@@ -338,7 +352,7 @@ function render(){
  document.querySelectorAll('[data-buy-item]').forEach(b=>b.onclick=()=>{let id=b.dataset.buyItem,x=itemData[id];if(state.gold>=x.price){state.gold-=x.price;state.inventory[id]++;save()}});
  document.querySelectorAll('[data-buy-gear]').forEach(b=>b.onclick=()=>{let id=b.dataset.buyGear,g=gearData[id];if(state.gold>=g.price){state.gold-=g.price;state.inventory[id]=(state.inventory[id]||0)+1;save()}});
  document.querySelectorAll('[data-buy-skill]').forEach(b=>b.onclick=()=>{let id=b.dataset.buySkill,sk=skillData[id];if(state.gold>=sk.cost&&level>=sk.level){state.gold-=sk.cost;state.ownedSkills.push(id);save()}});
- const xpShopItems=[...Object.entries(itemData).map(([id,x])=>({kind:'item',id,name:x.name,emoji:x.emoji,desc:x.desc,cost:id==='potion'?18:24})),...Object.entries(gearData).map(([id,g])=>({kind:'gear',id,name:g.name,emoji:g.emoji,desc:g.desc,cost:Math.max(90,Math.round(g.price*2.2))})),...Object.entries(skillData).filter(([id,sk])=>sk.cost>0&&!state.ownedSkills.includes(id)).map(([id,sk])=>({kind:'skill',id,name:sk.name,emoji:'✧',desc:'必要Lv.'+sk.level+' · '+sk.desc,cost:Math.max(80,sk.cost*2)}))];
+ const xpShopItems=[...Object.entries(itemData).map(([id,x])=>({kind:'item',id,name:x.name,emoji:x.emoji,desc:x.desc,cost:id==='monsterSeal'?80:(id==='potion'?18:24)})),...Object.entries(gearData).map(([id,g])=>({kind:'gear',id,name:g.name,emoji:g.emoji,desc:g.desc,cost:Math.max(90,Math.round(g.price*2.2))})),...Object.entries(skillData).filter(([id,sk])=>sk.cost>0&&!state.ownedSkills.includes(id)).map(([id,sk])=>({kind:'skill',id,name:sk.name,emoji:'✧',desc:'必要Lv.'+sk.level+' · '+sk.desc,cost:Math.max(80,sk.cost*2)}))];
  document.getElementById('xpShop').innerHTML=xpShopItems.map(x=>`<div class="reward"><div class="emoji">${x.emoji}</div><div class="info"><strong>${esc(x.name)}</strong><span class="small">${esc(x.desc)} · ${x.cost} XP</span></div><button data-xp-buy="${x.kind}:${x.id}" ${state.xp<x.cost?'disabled':''}>購入</button></div>`).join('')||'<div class="empty">現在購入できる商品はありません。</div>';
  document.querySelectorAll('[data-xp-buy]').forEach(b=>b.onclick=()=>{let [kind,id]=b.dataset.xpBuy.split(':');let item=xpShopItems.find(x=>x.kind===kind&&x.id===id);if(!item||state.xp<item.cost)return;if(kind==='skill'&&state.ownedSkills.includes(id))return;state.xp-=item.cost;if(kind==='item')state.inventory[id]=(state.inventory[id]||0)+1;else if(kind==='gear')state.inventory[id]=(state.inventory[id]||0)+1;else if(kind==='skill')state.ownedSkills.push(id);state.coach='学習XPを冒険の力に交換したよ。';save()});
 
@@ -446,7 +460,8 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
   };
   const labelFor=(id)=>enemyData[id]?.name||id;
   const findComp=(id)=>state.companions.find(c=>c.uid===id);
-  function appearanceFilter(c){const hues={黒:0,茶:8,金:38,銀:0,赤:345,青:205,紫:275,緑:115,ピンク:325};const v=c.appearance||{};const target=v.hair||'黒';const base=hues[target]??0;return target==='黒'||target==='銀'?'saturate(.92)':'hue-rotate('+base+'deg) saturate(1.08)';}
+  function appearanceFilter(c){return 'none';}
+  function appearanceHex(name){return ({黒:'#29252c',茶:'#865b3e',金:'#d6b34d',銀:'#b9c5d4',赤:'#b9474d',青:'#438bd1',紫:'#9162c5',緑:'#4a9b65',ピンク:'#e58bb5'})[name]||'#865b3e';}
   function companionPortrait(c){
     const meta=monsterMeta[c.id]||{};
     return monsterPortraitFor(c.id,meta);
@@ -456,10 +471,10 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
   function addCompanionExp(c,n){c.exp=(c.exp||0)+n;while(c.level<30&&c.exp>=c.level*55){c.exp-=c.level*55;c.level++;c.maxHp+=4;c.hp=c.maxHp;c.atk+=1;c.def+=1;if(c.gender==='女性')c.mag+=1;else c.res+=1;}}
   const appearanceColors=['黒','茶','金','銀','赤','青','紫','緑'];
   const foodData={
-    peach:{name:'桃',emoji:'🍑',price:18,bond:5,target:'hair',color:'ピンク',desc:'髪色に少しずつ桃色が混ざる'},
-    blueBerry:{name:'青晶ベリー',emoji:'🫐',price:22,bond:4,target:'eyes',color:'青',desc:'瞳に青みが増していく'},
-    goldenFruit:{name:'黄金の果実',emoji:'🍎',price:30,bond:6,target:'skin',color:'金',desc:'体や模様に金色の輝きが増える'},
-    moonMushroom:{name:'月光キノコ',emoji:'🍄',price:25,bond:5,target:'hair',color:'紫',desc:'髪に淡い紫色が混ざる'}
+    peach:{name:'桃',emoji:'🍑',xpCost:35,bond:5,target:'hair',color:'ピンク',desc:'髪色に少しずつ桃色が混ざる'},
+    blueBerry:{name:'青晶ベリー',emoji:'🫐',xpCost:35,bond:4,target:'eyes',color:'青',desc:'瞳に青みが増していく'},
+    goldenFruit:{name:'黄金の果実',emoji:'🍎',xpCost:50,bond:6,target:'eyes',color:'金',desc:'瞳に金色が少しずつ混ざる'},
+    moonMushroom:{name:'月光キノコ',emoji:'🍄',xpCost:45,bond:5,target:'hair',color:'紫',desc:'髪に淡い紫色が混ざる'}
   };
   function pickAppearanceColor(){return appearanceColors[Math.floor(Math.random()*appearanceColors.length)]}
   function rollTalents(id,gender){
@@ -478,8 +493,9 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
     state.inventory[itemId]--;intimacy(c,food.bond);
     c.appearance=c.appearance||{};c.appearance.foodProgress=c.appearance.foodProgress||{};
     let n=(c.appearance.foodProgress[itemId]||0)+1;c.appearance.foodProgress[itemId]=n;
-    if(n%3===0)c.appearance[food.target]=food.color;
-    c.foodHistory=c.foodHistory||[];c.foodHistory.unshift({day:today(),food:food.name,change:n%3===0?`${food.target}が${food.color}に変化`:'外見にわずかな変化'});
+    const stage=(n%3)/3;c.appearance[food.target+'Progress']=stage||1;
+    if(n%3===0){c.appearance[food.target]=food.color;c.appearance[food.target+'NextColor']=null;}else{c.appearance[food.target+'NextColor']=food.color;}
+    c.foodHistory=c.foodHistory||[];c.foodHistory.unshift({day:today(),food:food.name,change:n%3===0?`${food.target==='hair'?'髪':'目'}が${food.color}に変化`:'髪または目の色が少し変化'});
     state.adventureHistory.unshift({day:today(),text:`${c.name}に${food.name}をあげた。親密度が上がった。`});save();
   }
   function recruit(e,source){
@@ -490,7 +506,7 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
     const name=typed.trim(); if(!name){alert('仲間には必ず名前をつけてください。');return false;}
     const gender=e.gender||((monsterMeta[e.baseId||e.id]?.species==='dwarf')?'男性':(Math.random()<.5?'男性':'女性')); const p=personalityKeys[Math.floor(Math.random()*personalityKeys.length)];
     const m=monsterMeta[e.baseId||e.id]||{}; const scale=gender==='男性'?{atk:1.04,def:1.02,mag:1,res:1}:{atk:1,def:1,mag:1.04,res:1.02};
-    const c={uid:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),id:e.baseId||e.id,name,gender,personality:p,personalityStage:0,personalityLabel:personalities[p][0],intimacy:0,level:e.level||1,exp:0,maxHp:Math.round(e.maxHp||e.hp),hp:Math.round(e.maxHp||e.hp),atk:Math.max(1,Math.round((e.atk||5)*scale.atk)),def:Math.max(1,Math.round((e.def||3)*scale.def)),mag:Math.max(1,Math.round((e.mag||2)*scale.mag)),res:Math.max(1,Math.round((e.res||2)*scale.res)),rarity:e.rarity||'normal',joinedAt:today(),evolved:false,talents:rollTalents(e.baseId||e.id,gender),appearance:{hair:pickAppearanceColor(),eyes:pickAppearanceColor(),skin:pickAppearanceColor(),originalHair:null,originalEyes:null,originalSkin:null,foodProgress:{}},foodHistory:[],trainingHistory:[]};c.appearance.originalHair=c.appearance.hair;c.appearance.originalEyes=c.appearance.eyes;c.appearance.originalSkin=c.appearance.skin;
+    const recruitedHp=Math.max(18,Math.round((e.maxHp||e.hp)*.78)),recruitedMag=Math.max(1,Math.round((e.mag||2)*.72));const c={uid:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),id:e.baseId||e.id,name,gender,personality:p,personalityStage:0,personalityLabel:personalities[p][0],intimacy:0,level:e.level||1,exp:0,maxHp:recruitedHp,hp:recruitedHp,atk:Math.max(1,Math.round((e.atk||5)*scale.atk*.72)),def:Math.max(1,Math.round((e.def||3)*scale.def*.78)),mag:recruitedMag,res:Math.max(1,Math.round((e.res||2)*scale.res*.78)),mp:8+recruitedMag*2,maxMp:8+recruitedMag*2,rarity:e.rarity||'normal',joinedAt:today(),evolved:false,talents:rollTalents(e.baseId||e.id,gender),appearance:{hair:pickAppearanceColor(),eyes:pickAppearanceColor(),originalHair:null,originalEyes:null,foodProgress:{}},foodHistory:[],trainingHistory:[]};c.appearance.originalHair=c.appearance.hair;c.appearance.originalEyes=c.appearance.eyes;
     state.companions.push(c);const rec=state.bestiary[c.id]||{seen:1,kills:0,rareSeen:0,legendarySeen:0};rec.recruited=(rec.recruited||0)+1;state.bestiary[c.id]=rec;
     if(state.party.length<3)state.party.push(c.uid);
     state.coach=`${name}が仲間になった！これから一緒に成長していこう。`;
@@ -501,9 +517,9 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
     const party=state.party.map(findComp).filter(Boolean);
     const partyHtml=party.length?party.map(c=>`<span class="companion-tag">${esc(c.name)} · Lv.${c.level}</span>`).join(''):'<span class="companion-muted">まだパーティに仲間がいません。冒険で魔物を仲間にしよう。</span>';
     const cards=state.companions.map(c=>{
-      const meta=monsterMeta[c.id]||{},art=(c.id==='oni'&&c.gender==='女性'?'./assets/monsters/oni-female-young.webp':c.id==='oni'&&c.gender==='男性'?'./assets/monsters/oni-male-young.webp':c.id==='goblin'&&c.gender==='女性'?'./assets/monsters/goblin-female-young.webp':c.id==='goblin'&&c.gender==='男性'?'./assets/monsters/goblin-male-young.webp':c.id==='dwarf'?'./assets/monsters/dwarf-male-young.webp':companionPortrait(c)),active=state.party.includes(c.uid),opts=(evolution[c.id]||[]).filter(o=>!(c.gender==='女性'&&o.id==='oniWarrior')&&!(c.id==='oni'&&c.gender==='男性'&&o.id==='oniYoki'));if(c.id==='oni'&&c.gender==='女性'&&c.id==='oni')opts.push({id:'oniMiko',lv:8,bond:20});
+      c.maxMp=Number.isFinite(c.maxMp)?c.maxMp:(8+Math.max(1,c.mag||1)*2);c.mp=Number.isFinite(c.mp)?Math.min(c.mp,c.maxMp):c.maxMp;const meta=monsterMeta[c.id]||{},art=(c.id==='oni'&&c.gender==='女性'?'./assets/monsters/oni-female-young.webp':c.id==='oni'&&c.gender==='男性'?'./assets/monsters/oni-male-young.webp':c.id==='goblin'&&c.gender==='女性'?'./assets/monsters/goblin-female-young.webp':c.id==='goblin'&&c.gender==='男性'?'./assets/monsters/goblin-male-young.webp':c.id==='dwarf'?'./assets/monsters/dwarf-male-young.webp':companionPortrait(c)),active=state.party.includes(c.uid),opts=(evolution[c.id]||[]).filter(o=>!(c.gender==='女性'&&o.id==='oniWarrior')&&!(c.id==='oni'&&c.gender==='男性'&&o.id==='oniYoki'));if(c.id==='oni'&&c.gender==='女性'&&c.id==='oni')opts.push({id:'oniMiko',lv:8,bond:20});
       const evolveHtml=opts.length?opts.map(o=>{const ok=c.level>=o.lv&&(c.intimacy||0)>=(o.bond||0)&&state.monsterWins>=(o.wins||0);const hint=o.special?'特殊な条件があるようだ……':`必要Lv.${o.lv}${o.bond?`・親密度${o.bond}`:''}`;return `<div class="companion-muted">${labelFor(o.id)}：${hint}</div><button class="secondary full" data-evolve="${c.uid}:${o.id}" ${ok?'':'disabled'} style="margin-top:5px">${labelFor(o.id)}へ進化</button>`}).join(''):'<div class="companion-muted">現在確認できる進化先はありません。</div>';
-      return `<div class="companion-card ${active?'in-party':''}"><div class="companion-art">${art?`<img src="${art}" alt="${esc(labelFor(c.id))}" style="filter:${appearanceFilter(c)}">`:esc(enemyData[c.id]?.emoji||'✨')}</div><b>${esc(c.name)}</b><div class="companion-muted">${esc(labelFor(c.id))} · ${c.gender} · Lv.${c.level}</div><div class="companion-muted">性格：${esc(c.personalityLabel||personalities[c.personality]?.[0]||'忠実')} · 固有技：${c.gender==='男性'?'剛撃':'魔弾'}</div><div class="companion-muted">HP ${c.hp}/${c.maxHp} · 攻 ${c.atk} · 防 ${c.def} · 魔 ${c.mag}</div><div class="companion-muted">才能：攻撃 ${c.talents?.attack||'普通'}・魔法 ${c.talents?.magic||'普通'}・回復 ${c.talents?.healing||'不得意'}</div><div class="companion-muted">外見：髪 ${c.appearance?.hair||'黒'}／目 ${c.appearance?.eyes||'茶'}／体 ${c.appearance?.skin||'通常'}</div><div class="companion-muted">親密度 ${c.intimacy}/100</div><div class="companion-muted">${esc(bondDialogue(c))}</div><div class="bond-bar"><span style="width:${c.intimacy}%"></span></div><div class="companion-actions"><button class="${active?'gold':'secondary'}" data-party="${c.uid}">${active?'パーティ解除':'パーティ編成'}</button><button class="secondary" data-train="${c.uid}">訓練する（45G）</button></div><div class="evolve-box"><b class="companion-muted">進化候補</b>${evolveHtml}</div><div class="evolve-box"><b class="companion-muted">食べ物をあげる</b><div class="companion-actions">${Object.entries(foodData).map(([id,f])=>`<button class="secondary" data-feed="${c.uid}:${id}" ${state.inventory[id]>0?'':'disabled'}>${f.emoji}${f.name} ×${state.inventory[id]||0}</button>`).join('')}</div><div class="companion-muted">食べ物を3個あげるごとに、対応する色が少しずつ変化します。</div></div></div>`;
+      return `<div class="companion-card ${active?'in-party':''}" data-companion-uid="${c.uid}"><div class="companion-art">${art?`<img src="${art}" alt="${esc(labelFor(c.id))}" style="filter:none">${String(c.id).toLowerCase().includes('slime')?'':`<span class="appearance-hair-tint" style="--tint:${appearanceHex(c.appearance?.hairNextColor||c.appearance?.hair)};--tint-opacity:${c.appearance?.hairNextColor?Math.min(.56,.14+(c.appearance?.hairProgress||0)*.42):.56}"></span><span class="appearance-eye-tint" style="--tint:${appearanceHex(c.appearance?.eyesNextColor||c.appearance?.eyes)};--tint-opacity:${c.appearance?.eyesNextColor?Math.min(.78,.2+(c.appearance?.eyesProgress||0)*.58):.78}"></span>`}`:esc(enemyData[c.id]?.emoji||'✨')}</div><b>${esc(c.name)}</b><div class="companion-muted">${esc(labelFor(c.id))} · ${c.gender} · Lv.${c.level}</div><div class="companion-muted">性格：${esc(c.personalityLabel||personalities[c.personality]?.[0]||'忠実')} · 固有技：${c.gender==='男性'?'剛撃':'魔弾'}</div><div class="companion-muted">HP ${c.hp}/${c.maxHp} · MP ${c.mp??0}/${c.maxMp??0} · 攻 ${c.atk} · 防 ${c.def} · 魔 ${c.mag}</div><div class="companion-muted">才能：攻撃 ${c.talents?.attack||'普通'}・魔法 ${c.talents?.magic||'普通'}・回復 ${c.talents?.healing||'不得意'}</div><div class="companion-muted">外見：髪 ${c.appearance?.hair||'黒'}／目 ${c.appearance?.eyes||'茶'}</div><div class="companion-muted">親密度 ${c.intimacy}/100</div><div class="companion-muted">${esc(bondDialogue(c))}</div><div class="bond-bar"><span style="width:${c.intimacy}%"></span></div><div class="companion-actions"><button class="${active?'gold':'secondary'}" data-party="${c.uid}">${active?'パーティ解除':'パーティ編成'}</button><button class="secondary" data-train="${c.uid}">訓練する（45G）</button></div><div class="evolve-box"><b class="companion-muted">進化候補</b>${evolveHtml}</div><div class="evolve-box"><b class="companion-muted">食べ物をあげる</b><div class="companion-actions">${Object.entries(foodData).map(([id,f])=>`<button class="secondary" data-feed="${c.uid}:${id}" ${state.inventory[id]>0?'':'disabled'}>${f.emoji}${f.name} ×${state.inventory[id]||0}</button>`).join('')}</div><div class="companion-muted">食べ物を3個あげるごとに、対応する色が少しずつ変化します。</div></div></div>`;
     }).join('');
     root.innerHTML=`<div><b>現在のパーティ（${party.length}/3）</b><div style="margin:6px 0 10px">${partyHtml}</div></div><div class="companion-muted">仲間 ${state.companions.length}/30体 · 勝利数 ${state.monsterWins} · 勉強や冒険で親密度とレベルが上がります。</div><div class="companion-grid">${cards}</div>`;
     root.querySelectorAll('[data-feed]').forEach(btn=>btn.onclick=()=>{const [uid,item]=btn.dataset.feed.split(':');feedCompanion(uid,item)});
@@ -540,7 +556,13 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
     if(cmd.action==='attack'){
       const traitBonus=c.personality==='capricious'?(Math.random()<.5?.12:0):c.personality==='bold'?.10:c.personality==='proud'?.07:c.personality==='curious'?.04:0;const loyaltyBonus=(c.personalityStage||0)>=2?.05:0;const raw=c.gender==='女性'?c.mag*.95-e.res*.22:c.atk*.9-e.def*.22;const dmg=Math.max(1,Math.floor(raw*(1+traitBonus+loyaltyBonus)));e.hp=Math.max(0,e.hp-dmg);addLog(`${c.name}の${c.gender==='女性'?'魔弾':'剛撃'}！ ${dmg}ダメージ。`);
     }else if(cmd.action==='heal'){
-      const amount=Math.max(5,Math.floor((c.mag*.85+7)*(c.personality==='gentle'||c.personality==='curious'?1.15:1)*((c.personalityStage||0)>=2?1.05:1)));const before=currentHP();setHP(currentHP()+amount);addLog(`${c.name}が主人公を回復！ HPが${currentHP()-before}回復。`);
+      b.companionHealUsed=b.companionHealUsed||0;
+      if(b.companionHealUsed>=2){addLog('この戦闘では仲間の回復魔法をこれ以上使えない！');return;}
+      c.mp=Number.isFinite(c.mp)?c.mp:(c.maxMp||10);
+      if(c.mp<4){addLog(`${c.name}のMPが足りない！`);return;}
+      c.mp-=4;b.companionHealUsed++;
+      const amount=Math.max(3,Math.floor((c.mag*.55+3)*(c.personality==='gentle'||c.personality==='curious'?1.08:1)));
+      const before=currentHP();setHP(currentHP()+amount);addLog(`${c.name}が主人公を回復！ HPが${currentHP()-before}回復。（MP -4）`);
     }else if(cmd.action==='guard'){
       b.guard=true;b.guardReduction=(c.personality==='timid'||c.personality==='gentle')?.28:.35;addLog(`${c.name}が主人公をかばう！次の攻撃を軽減する。`);
     }
@@ -549,21 +571,32 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.add
   // Wrap the existing engine so all v4 study, quest, shop and combat features remain intact.
   const oldXPGain=xpGain;xpGain=function(amount){oldXPGain(amount);state.gold+=Math.floor(amount*.3);state.party.map(findComp).filter(Boolean).forEach(c=>{addCompanionExp(c,Math.max(1,Math.floor(amount*.22)));intimacy(c,Math.max(1,Math.floor(amount/45)));});};
   const oldEnemyTurn=enemyTurn;enemyTurn=function(preempt=false){if(!preempt&&state.battle){const result=applyCompanionCommand();if(result==='defeated'||!state.battle)return;}return oldEnemyTurn(preempt)};
-  const oldFinishBattle=finishBattle;finishBattle=function(win,escaped=false,fallen=false){const enemy=state.battle?.enemy;oldFinishBattle(win,escaped,fallen);if(win&&enemy){if(enemy._captured){const rec=state.bestiary[enemy.baseId||enemy.id];if(rec)rec.kills=Math.max(0,(rec.kills||0)-1);if(state.adventureHistory[0])state.adventureHistory[0].text=`${enemy.name}を封印して仲間にした。`; }state.monsterWins++;state.party.map(findComp).filter(Boolean).forEach(c=>{intimacy(c,3);addCompanionExp(c,10)});if(!enemy._captured&&state.companions.length<30){const rank=monsterMeta[enemy.id]?.rank||1;const chance=.02/(1+(enemy.level-1)*.08)/(1+(rank-1)*.22)*(enemy.rarity==='legendary'?.45:enemy.rarity==='rare'?.7:1);if(Math.random()<chance){const got=recruit(enemy,'victory');if(got)state.coach='思いがけない出会いだ！新しい仲間と冒険しよう。';}}save();}};
+  const oldFinishBattle=finishBattle;finishBattle=function(win,escaped=false,fallen=false){const enemy=state.battle?.enemy;const fullDefeat=!win&&!escaped&&fallen;if(fullDefeat){state.gold=Math.max(0,(state.gold||0)-5);state.adventureHistory.unshift({day:today(),text:'全滅による敗北：5 GOLDを失った'});}oldFinishBattle(win,escaped,fallen);if(win&&enemy){state.party.map(findComp).filter(Boolean).forEach(c=>{c.mp=Math.min(c.maxMp||0,(c.mp||0)+1)});if(enemy._captured){const rec=state.bestiary[enemy.baseId||enemy.id];if(rec)rec.kills=Math.max(0,(rec.kills||0)-1);if(state.adventureHistory[0])state.adventureHistory[0].text=`${enemy.name}を封印して仲間にした。`; }state.monsterWins++;state.party.map(findComp).filter(Boolean).forEach(c=>{intimacy(c,3);addCompanionExp(c,10)});if(!enemy._captured&&state.companions.length<30){const rank=monsterMeta[enemy.id]?.rank||1;const chance=.02/(1+(enemy.level-1)*.08)/(1+(rank-1)*.22)*(enemy.rarity==='legendary'?.45:enemy.rarity==='rare'?.7:1);if(Math.random()<chance){const got=recruit(enemy,'victory');if(got)state.coach='思いがけない出会いだ！新しい仲間と冒険しよう。';}}save();}};
   const oldRenderBattle=renderBattle;renderBattle=function(){oldRenderBattle();companionBattleUI()};
-  const oldRender=render;render=function(){oldRender();renderCompanionHub();renderFoodShop()};
+  const oldRender=render;render=function(){oldRender();renderCompanionHub();renderFoodShop();
+    document.querySelectorAll('[data-buy-item="monsterSeal"]').forEach(b=>b.closest('.reward')?.remove());
+    const hub=document.getElementById('companionHub');
+    if(hub){
+      const mode=state.companionDisplayMode||'compact',listMode=state.companionListMode||'party';hub.classList.toggle('compact-view',mode==='compact');
+      if(!hub.querySelector('.companion-layout-tools'))hub.insertAdjacentHTML('afterbegin',`<div class="companion-layout-tools"><button type="button" class="${listMode==='party'?'gold':'secondary'}" data-roster-view="party">パーティ</button><button type="button" class="${listMode==='all'?'gold':'secondary'}" data-roster-view="all">仲間一覧</button></div><div class="companion-layout-tools"><button type="button" class="${mode==='compact'?'gold':'secondary'}" data-comp-view="compact">簡易表示</button><button type="button" class="${mode==='full'?'gold':'secondary'}" data-comp-view="full">全表示</button></div><div class="companion-muted" style="margin:0 0 8px">${listMode==='party'?'現在のパーティ':'仲間一覧'} · パーティ ${state.party.length}/3体 · 所持 ${state.companions.length}/30体</div>`);
+      hub.querySelectorAll('[data-comp-view]').forEach(btn=>btn.onclick=()=>{state.companionDisplayMode=btn.dataset.compView;save()});
+      hub.querySelectorAll('[data-roster-view]').forEach(btn=>btn.onclick=()=>{state.companionListMode=btn.dataset.rosterView;save()});
+      hub.querySelectorAll('[data-companion-uid]').forEach(card=>{card.style.display=listMode==='party'?(state.party.includes(card.dataset.companionUid)?'':'none'):'';
+        });
+    }
+  };
   const oldRenderBestiary=renderBestiary;renderBestiary=function(){oldRenderBestiary();const n=document.getElementById('seenCount');if(n){const recruited=state.companions.length;const stats=n.parentElement;if(stats&&!document.getElementById('recruitedCount'))stats.insertAdjacentHTML('beforeend',`<div class="stat"><span class="muted">仲間にした数</span><strong id="recruitedCount">${recruited}</strong></div>`);else if(document.getElementById('recruitedCount'))document.getElementById('recruitedCount').textContent=recruited;}};
   // Update encyclopedia family filters and add new evolutionary trees.
   const oldBestGrid=renderBestiary; // retain the v4 listing; companion records are tracked separately above.
   function renderFoodShop(){
     let foodShop=document.getElementById('companionFoodShop');
     if(!foodShop){foodShop=document.createElement('div');foodShop.id='companionFoodShop';foodShop.className='card';const shop=document.getElementById('shop');if(shop)shop.appendChild(foodShop);}
-    foodShop.innerHTML='<h2>仲間のおやつ</h2><p class="muted">食べ物は親密度を高め、少しずつ外見にも変化を与えます。</p>'+Object.entries(foodData).map(([id,f])=>`<div class="row" style="margin:8px 0"><span>${f.emoji} ${f.name} · ${f.price}G（所持 ${state.inventory[id]||0}）</span><button class="secondary" data-buy-food="${id}" ${state.gold<f.price?'disabled':''}>購入</button></div>`).join('');
-    foodShop.querySelectorAll('[data-buy-food]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.buyFood,f=foodData[id];if(state.gold<f.price){alert('GOLDが足りません。');return}state.gold-=f.price;state.inventory[id]=(state.inventory[id]||0)+1;save()});
+    foodShop.innerHTML='<h2>仲間のおやつ</h2><p class="muted">おやつは勉強で得たXPで交換できます。髪または目の色が少しずつ変化します。</p>'+Object.entries(foodData).map(([id,f])=>`<div class="row" style="margin:8px 0"><span>${f.emoji} ${f.name} · ${f.xpCost} XP（所持 ${state.inventory[id]||0}）</span><button class="secondary" data-buy-food="${id}" ${state.xp<f.xpCost?'disabled':''}>購入</button></div>`).join('');
+    foodShop.querySelectorAll('[data-buy-food]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.buyFood,f=foodData[id];if(state.xp<f.xpCost){alert('XPが足りません。');return}state.xp-=f.xpCost;state.inventory[id]=(state.inventory[id]||0)+1;save()});
   }
-  const about=document.querySelector('#settings .card:nth-child(2) p');if(about)about.textContent='Study Quest v7.0 · 個体差・才能・食べ物・性別進化 · データは端末内に保存';
-  const brand=document.querySelector('header .brand');if(brand)brand.textContent='STUDY QUEST V7 · YOUR LEARNING ADVENTURE';
-  const aboutApp=document.querySelector('#settings .card:nth-child(2) h3');if(aboutApp)aboutApp.textContent='Study Quest v7.0';
+  const about=document.querySelector('#settings .card:nth-child(2) p');if(about)about.textContent='Study Quest v7.2 · XP経済・個体育成・髪と目の外見変化 · データは端末内に保存';
+  const brand=document.querySelector('header .brand');if(brand)brand.textContent='STUDY QUEST V7.2 · YOUR LEARNING ADVENTURE';
+  const aboutApp=document.querySelector('#settings .card:nth-child(2) h3');if(aboutApp)aboutApp.textContent='Study Quest v7.2';
   // Make the defense skill meaningfully distinct: normal guard is moderate, Iron Wall is limited-use.
   const oldActionTurn=actionTurn;actionTurn=function(action,skillId){const b=state.battle;if(action==='guard'&&b){b.guardReduction=.6;}if(action==='skill'&&skillId==='ironWall'&&b){b.ironWallUses=b.ironWallUses??2;if(b.ironWallUses<=0){alert('鉄壁の守りはこの戦闘ではもう使えません。');return;}b.ironWallUses--;b.guardReduction=.12;}return oldActionTurn(action,skillId)};
   // v5 update notice and initial render.
