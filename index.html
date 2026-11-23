@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Study Quest">
 <link rel="manifest" href="manifest.webmanifest">
-<title>Study Quest</title>
+<title>Study Quest v5.0</title>
 <style>
 :root{--navy:#090b10;--gold:#d6d6d6;--green:#bfc7d2;--bg:#080a0e;--card:#11151c;--muted:#a4aab5;--line:#39404b;--red:#a94b55;--blue:#aab4c2}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#242a35 0%,#0a0c11 52%,#050609 100%);font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;color:#e8e9ed;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
@@ -36,9 +36,9 @@ textarea{min-height:68px;resize:vertical}label{font-size:12px;font-weight:750;co
 .danger-note{background:#2b1c20;border:1px solid #70434a;padding:10px;border-radius:11px;font-size:11px;line-height:1.6;color:#e8c3c7}
 hr{border:0;border-top:1px solid var(--line);margin:13px 0}
 .barline{height:8px;background:#e8edf3;border-radius:10px;overflow:hidden;margin-top:5px}.barline span{height:100%;display:block;background:#c16a58}
-.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.mini{background:#f3f5f8;padding:9px;border-radius:10px;font-size:12px}.mini b{font-size:16px;display:block;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.mini{background:#f3f5f8;color:#27313f;padding:9px;border-radius:10px;font-size:12px}.mini b{font-size:16px;display:block;margin-top:3px;color:#101820}
 .actiongrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.actiongrid button{width:100%}
-.enemy-head{display:flex;align-items:center;gap:12px}.monster{font-size:42px;width:55px;text-align:center}.monster img{width:76px;height:76px;object-fit:cover;border-radius:13px;border:1px solid #d8dfeb}.monster-card-art{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#17243a}.bestiary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.bestiary-card{border:1px solid var(--line);border-radius:13px;padding:9px;background:#11151c;min-width:0}.bestiary-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:9px;background:#18253c}.bestiary-card.locked img{filter:brightness(.12) grayscale(1)}.rarity{font-size:10px;border-radius:20px;padding:3px 7px;background:#2a303a;color:#e0e3e8}.rarity.rare{background:#25374b;color:#d6e6fa}.rarity.legendary{background:#40331e;color:#f1dfb8}.rank{font-size:10px;color:#6b7280}.tree{border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0}.tree-node{display:inline-block;background:#edf2f8;border-radius:9px;padding:7px 9px;font-size:11px;font-weight:700;margin:3px}.tree-node.known{background:#20352e;color:#d2f0df}.tree-arrow{color:#8793a5;padding:0 4px}.hp{font-size:11px;color:var(--muted);margin-top:5px}.hpbar{height:9px;background:#f0e4e4;border-radius:10px;overflow:hidden;margin-top:4px}.hpbar span{display:block;height:100%;background:#c45b5b}
+.enemy-head{display:flex;align-items:center;gap:12px}.monster{font-size:42px;width:55px;text-align:center}.monster img{width:76px;height:76px;object-fit:cover;border-radius:13px;border:1px solid #d8dfeb}.monster-card-art{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#17243a}.bestiary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.bestiary-card{border:1px solid var(--line);border-radius:13px;padding:9px;background:#11151c;min-width:0}.bestiary-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:9px;background:#18253c}.bestiary-card .monster-card-art{display:grid;place-items:center;font-size:58px;aspect-ratio:1/1}.bestiary-card.locked img{filter:brightness(.12) grayscale(1)}.rarity{font-size:10px;border-radius:20px;padding:3px 7px;background:#2a303a;color:#e0e3e8}.rarity.rare{background:#25374b;color:#d6e6fa}.rarity.legendary{background:#40331e;color:#f1dfb8}.rank{font-size:10px;color:#6b7280}.tree{border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0}.tree-node{display:inline-block;background:#edf2f8;border-radius:9px;padding:7px 9px;font-size:11px;font-weight:700;margin:3px}.tree-node.known{background:#20352e;color:#d2f0df}.tree-arrow{color:#8793a5;padding:0 4px}.hp{font-size:11px;color:var(--muted);margin-top:5px}.hpbar{height:9px;background:#f0e4e4;border-radius:10px;overflow:hidden;margin-top:4px}.hpbar span{display:block;height:100%;background:#c45b5b}
 .log{background:#171c24;border:1px solid #333b47;border-radius:3px;padding:10px;font-size:12px;line-height:1.6;max-height:150px;overflow:auto;margin:9px 0}
 nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#0a0c11;border-top:1px solid #59616d;padding:8px 12px calc(8px + env(safe-area-inset-bottom));text-align:center;font-size:10px;color:var(--muted)}
 @media(min-width:600px){.tabs{grid-template-columns:repeat(7,1fr)}.bestiary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -121,7 +121,7 @@ nav.bottom{position:fixed;bottom:0;left:0;right:0;background:#0a0c11;border-top:
  </section>
  <section id="settings" class="panel">
   <div class="card"><h2 class="section-title">データ管理</h2><p class="muted">データはこのiPhoneのブラウザ内に保存されます。定期的にバックアップしてください。</p><button class="full" id="exportData">バックアップを書き出す（JSON）</button><label>バックアップファイルから復元</label><input type="file" id="importFile" accept="application/json"><button class="secondary full" id="resetData" style="margin-top:11px">すべてのデータを初期化</button><div class="notice" style="margin-top:12px">SafariのWebサイトデータを消去すると記録が失われる場合があります。JSONバックアップを保管してください。</div></div>
-  <div class="card"><h3 class="section-title">アプリについて</h3><p class="muted">Study Quest v3.0 · モンスター図鑑・階級進化・オフライン対応 · 保存先は端末内</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
+  <div class="card"><h3 class="section-title">アプリについて</h3><p class="muted">Study Quest v5.0 · 仲間・親密度・進化・パーティ戦闘 · 保存先は端末内</p><button class="secondary full" id="showInstall">iPhoneのホーム画面に追加する方法</button></div>
  </section>
 </main>
 <nav class="bottom">STUDY QUEST · 小さな積み重ねを、合格への力に。</nav>
@@ -137,7 +137,7 @@ const defaultState={
  {id:4,subject:'世界史',name:'世界史用語を復習',xp:30,done:false,day:today()}],
  logs:[],lastStudied:{},urgentDay:'',urgentId:0,urgentDone:[],rewards:[
  {id:1,name:'ゲームタイム',time:'15分',cost:20,emoji:'🎮'},{id:2,name:'アニメタイム',time:'15分',cost:25,emoji:'📺'},{id:3,name:'動画タイム',time:'15分',cost:15,emoji:'▶️'}],
- redemptions:[],inventory:{potion:2,ether:0},equipment:{weapon:null,armor:null,accessory:null},ownedSkills:['strike','guard'],battle:null,dungeon:null,adventureHistory:[],coach:'今日も一歩ずつ。勉強の積み重ねが、冒険者を強くするよ。'
+ redemptions:[],inventory:{potion:2,ether:0,monsterSeal:1},companions:[],party:[],monsterWins:0,equipment:{weapon:null,armor:null,accessory:null},ownedSkills:['strike','guard'],battle:null,dungeon:null,adventureHistory:[],coach:'今日も一歩ずつ。勉強の積み重ねが、冒険者を強くするよ。'
 };
 function today(){return new Date().toLocaleDateString('sv-SE')}
 function clone(x){return JSON.parse(JSON.stringify(x))}
@@ -258,7 +258,7 @@ function enemyTurn(preempt=false){let b=state.battle;if(!b||b.enemy.hp<=0)return
  else if(e.ai==='caster'&&Math.random()<.45){e.telegraph='spell';addLog(`${e.name}は詠唱を始めた！次の攻撃に備えよう。`);return}
  else if(e.ai==='trickster'&&Math.random()<.35){damage=Math.max(2,Math.floor(e.mag*1.25-s.res*.35));kind='狡猾な魔法';}
  else {damage=Math.max(1,Math.floor(e.atk*(e.ai==='aggressive'?1.12:1)-s.def*.38));}
- if(b.guard){damage=Math.ceil(damage*.35);b.guard=false;addLog('防御姿勢でダメージを軽減！')}
+ if(b.guard){damage=Math.ceil(damage*(b.guardReduction??.6));b.guard=false;b.guardReduction=null;addLog('防御姿勢でダメージを軽減！')}
  if(e.poison&&Math.random()<.22){addLog('毒グモの毒がじわじわ効いている……');damage+=2}
  setHP(currentHP()-damage);addLog(`${e.name}の${kind}！ ${damage}ダメージ。`);if(currentHP()<=0){addLog('HPが尽きた……ギルドへ帰還した。');finishBattle(false,false,true)}
 }
@@ -278,10 +278,12 @@ function renderBattle(){let el=document.getElementById('battleCard');if(!state.b
  document.getElementById('battleAttack').onclick=()=>actionTurn('attack');document.getElementById('battleGuard').onclick=()=>actionTurn('guard');document.getElementById('battleItem').onclick=()=>actionTurn('item');
  document.getElementById('battleEther').onclick=()=>{if(state.inventory.ether>0){let activeBattle=state.battle;state.inventory.ether--;activeBattle.focus=true;addLog('魔力薬を使用。次の魔法攻撃が強化される。');enemyTurn();if(state.battle){activeBattle.turn++;save()}}else alert('魔力薬を持っていません。')};document.getElementById('battleRun').onclick=()=>actionTurn('run');document.getElementById('battleMagic').onclick=()=>{let picker=document.getElementById('skillPicker');picker.innerHTML='<div class="skill"><b>使用するスキル</b>'+state.ownedSkills.map(id=>{let sk=skillData[id];return `<button class="secondary full" style="margin-top:6px" data-skill="${id}">${esc(sk.name)} · ${esc(sk.desc)}</button>`}).join('')+'</div>';picker.querySelectorAll('[data-skill]').forEach(x=>x.onclick=()=>actionTurn('skill',x.dataset.skill))};
 }
-function renderBestiary(){let entries=Object.entries(enemyData).map(([id,d])=>({id,d,meta:monsterMeta[id]||{},rec:state.bestiary[id]||{seen:0,kills:0,rareSeen:0,legendarySeen:0}}));let filter=document.getElementById('bestiaryFilter')?.value||'all',sort=document.getElementById('bestiarySort')?.value||'rank';if(filter!=='all')entries=entries.filter(x=>filter==='other'?(!['goblin','slime','wolf','undead','spirit','dragon'].includes(x.meta.species)):x.meta.species===filter);if(sort==='name')entries.sort((a,b)=>a.d.name.localeCompare(b.d.name,'ja'));else if(sort==='seen')entries.sort((a,b)=>(b.rec.seen>0)-(a.rec.seen>0)||((b.rec.kills||0)-(a.rec.kills||0)));else entries.sort((a,b)=>(a.meta.rank||1)-(b.meta.rank||1)||a.d.name.localeCompare(b.d.name,'ja'));let discovered=Object.values(state.bestiary).filter(x=>x.seen>0).length;document.getElementById('bestiaryCount').textContent=`${discovered} / ${Object.keys(enemyData).length} 発見`;document.getElementById('seenCount').textContent=discovered;document.getElementById('killCount').textContent=Object.values(state.bestiary).reduce((n,x)=>n+(x.kills||0),0);document.getElementById('bestiaryGrid').innerHTML=entries.map(x=>{let known=x.rec.seen>0,meta=x.meta,art=meta.image?monsterArt[meta.image]:'';return `<div class="bestiary-card ${known?'':'locked'}">${art?`<img src="${art}" alt="${known?esc(x.d.name):'未発見の魔物'}">`:`<div class="monster-card-art"></div>`}<div class="row" style="margin-top:7px"><b style="font-size:12px">${known?esc(x.d.name):'？？？'}</b><span class="rank">${meta.rankName||'下級'}</span></div><div class="small">${known?esc(meta.speciesName||'その他'):'未発見'} · ${known?`遭遇 ${x.rec.seen} / 討伐 ${x.rec.kills||0}`:'探索で発見しよう'}</div>${known?`<div class="row wrap" style="margin-top:6px"><span class="rarity">通常</span>${x.rec.rareSeen?`<span class="rarity rare">希少 ×${x.rec.rareSeen}</span>`:''}${x.rec.legendarySeen?`<span class="rarity legendary">伝説 ×${x.rec.legendarySeen}</span>`:''}</div>`:''}</div>`}).join('')||'<div class="empty">該当する魔物はいません。</div>';
- let families=[['ゴブリン族','goblin'],['スライム族','slime'],['狼族','wolf'],['アンデッド族','undead'],['精霊族','spirit'],['竜族','dragon']];
+function renderBestiary(){let entries=Object.entries(enemyData).map(([id,d])=>({id,d,meta:monsterMeta[id]||{},rec:state.bestiary[id]||{seen:0,kills:0,rareSeen:0,legendarySeen:0}}));let filter=document.getElementById('bestiaryFilter')?.value||'all',sort=document.getElementById('bestiarySort')?.value||'rank';if(filter!=='all')entries=entries.filter(x=>filter==='other'?(!['goblin','slime','wolf','undead','spirit','dragon'].includes(x.meta.species)):x.meta.species===filter);if(sort==='name')entries.sort((a,b)=>a.d.name.localeCompare(b.d.name,'ja'));else if(sort==='seen')entries.sort((a,b)=>(b.rec.seen>0)-(a.rec.seen>0)||((b.rec.kills||0)-(a.rec.kills||0)));else entries.sort((a,b)=>(a.meta.rank||1)-(b.meta.rank||1)||a.d.name.localeCompare(b.d.name,'ja'));let discovered=Object.values(state.bestiary).filter(x=>x.seen>0).length;document.getElementById('bestiaryCount').textContent=`${discovered} / ${Object.keys(enemyData).length} 発見`;document.getElementById('seenCount').textContent=discovered;document.getElementById('killCount').textContent=Object.values(state.bestiary).reduce((n,x)=>n+(x.kills||0),0);document.getElementById('bestiaryGrid').innerHTML=entries.map(x=>{let known=x.rec.seen>0,meta=x.meta,art=meta.image?monsterArt[meta.image]:'';return `<div class="bestiary-card ${known?'':'locked'}">${art?`<img src="${art}" alt="${known?esc(x.d.name):'未発見の魔物'}">`:`<div class="monster-card-art">${known?(x.d.emoji||'✨'):''}</div>`}<div class="row" style="margin-top:7px"><b style="font-size:12px">${known?esc(x.d.name):'？？？'}</b><span class="rank">${meta.rankName||'下級'}</span></div><div class="small">${known?esc(meta.speciesName||'その他'):'未発見'} · ${known?`遭遇 ${x.rec.seen} / 討伐 ${x.rec.kills||0}`:'探索で発見しよう'}</div>${known?`<div class="row wrap" style="margin-top:6px"><span class="rarity">通常</span>${x.rec.rareSeen?`<span class="rarity rare">希少 ×${x.rec.rareSeen}</span>`:''}${x.rec.legendarySeen?`<span class="rarity legendary">伝説 ×${x.rec.legendarySeen}</span>`:''}</div>`:''}</div>`}).join('')||'<div class="empty">該当する魔物はいません。</div>';
+ let families=[['ゴブリン族','goblin'],['ドワーフ族','dwarf'],['鬼人族','oni'],['スライム族','slime'],['狼族','wolf'],['アンデッド族','undead'],['精霊族','spirit'],['竜族','dragon']];
  let lines={
  goblin:[[['goblin','ゴブリン'],['hobgoblin','ホブゴブリン'],['goblinGeneral','ゴブリンジェネラル'],['goblinKing','ゴブリンキング']],[['goblin','ゴブリン'],['goblinShaman','ゴブリンシャーマン'],['goblinSage','ゴブリンセージ'],['goblinKing','ゴブリンキング']]],
+  dwarf:[[['dwarf','山岳ドワーフ'],['dwarfGuard','ドワーフガード'],['runeDwarf','ルーンマスター']]],
+  oni:[[['oni','幼き鬼人'],['oniWarrior','鬼人の武闘家'],['oniLord','鬼神の覇者']]],
  slime:[[['slime','スライム'],['aquaSlime','アクアスライム']],[['slime','スライム'],['flameSlime','フレイムスライム']],[['slime','スライム'],['crystalSlime','クリスタルスライム']]],
  wolf:[[['wolf','ダイアウルフ'],['shadowWolf','シャドウウルフ']],[['wolf','ダイアウルフ'],['frostWolf','フロストウルフ']],[['wolf','ダイアウルフ'],['alphaWolf','アルファウルフ']]],
  undead:[[['skeleton','スケルトン'],['skeletonKnight','スケルトンナイト']]],
@@ -339,7 +341,7 @@ function updatePreview(){document.getElementById('xpPreview').textContent='+'+ca
 document.getElementById('submitReport').onclick=()=>{let title=document.getElementById('rTitle').value.trim(),detail=document.getElementById('rDetail').value.trim(),minutes=Number(document.getElementById('rMinutes').value);if(!title||!detail||!minutes||minutes<1){alert('教材・内容・学習時間を入力してください。');return}let xp=calcXP(),intensity=document.getElementById('rIntensity').selectedOptions[0].text.split('：')[0],subject=document.getElementById('rSubject').value;state.logs.push({id:Date.now(),subject,title,detail,minutes,xp,intensity,day:today()});state.lastStudied[subject]=today();xpGain(xp);state.coach='学習報告を受け取ったよ。今日の積み重ねが冒険者の力になったね。';document.getElementById('rTitle').value='';document.getElementById('rDetail').value='';save();alert('+'+xp+' XP 獲得！')};
 document.getElementById('addReward').onclick=()=>{let name=document.getElementById('rewardName').value.trim(),time=document.getElementById('rewardTime').value.trim(),cost=Math.max(1,Math.min(10000,Number(document.getElementById('rewardCost').value)||25));if(!name||!time)return;state.rewards.push({id:Date.now(),name,time,cost,emoji:'🎁'});document.getElementById('rewardName').value='';document.getElementById('rewardTime').value='';save()};
 document.getElementById('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='study-quest-backup-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
-document.getElementById('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x||typeof x.xp!=='number'||!Array.isArray(x.logs)||!Array.isArray(x.quests)||!Array.isArray(x.rewards))throw Error();if(confirm('現在のデータをバックアップ内容で置き換えますか？')){state={...clone(defaultState),...x};state.stats={...baseStats,...(x.stats||{})};state.inventory={...defaultState.inventory,...(x.inventory||{})};state.equipment={...defaultState.equipment,...(x.equipment||{})};state.bestiary=x.bestiary||{};save();alert('復元しました')}}catch{alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
+document.getElementById('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x||typeof x.xp!=='number'||!Array.isArray(x.logs)||!Array.isArray(x.quests)||!Array.isArray(x.rewards))throw Error();if(confirm('現在のデータをバックアップ内容で置き換えますか？')){state={...clone(defaultState),...x};state.stats={...baseStats,...(x.stats||{})};state.inventory={...defaultState.inventory,...(x.inventory||{})};state.equipment={...defaultState.equipment,...(x.equipment||{})};state.bestiary=x.bestiary||{};state.companions=Array.isArray(x.companions)?x.companions:[];state.party=Array.isArray(x.party)?x.party.slice(0,3):[];state.monsterWins=Number(x.monsterWins)||0;state.inventory.monsterSeal=Number(state.inventory.monsterSeal??1);save();alert('復元しました')}}catch{alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
 document.getElementById('resetData').onclick=()=>{if(confirm('すべての学習記録・XP・冒険データを削除しますか？')&&confirm('本当に初期化しますか？')){state=clone(defaultState);save()}};
 document.getElementById('showInstall').onclick=()=>alert('SafariでこのアプリのURLを開き、共有ボタン →「ホーム画面に追加」→「追加」を選んでください。');
 // Lightweight synthesized UI sounds (no external audio files; iOS starts audio after first tap)
@@ -349,5 +351,174 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden){ensureDai
 document.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;let id=b.id||'';let kind=id==='battleAttack'||b.dataset.skill?'attack':id==='battleMagic'?'magic':id==='addQuest'||b.hasAttribute('data-complete')?'complete':id==='submitReport'?'complete':b.hasAttribute('data-redeem')||b.hasAttribute('data-xp-buy')||b.hasAttribute('data-buy-item')||b.hasAttribute('data-buy-gear')||b.hasAttribute('data-buy-skill')?'buy':'click';playSound(kind)},true);
 render();updatePreview();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+<script>
+/* Study Quest v5.0 - Monster companions, bonds, capture and evolution */
+(function(){
+  // Keep existing v4 saves intact and add only new fields.
+  state.companions = Array.isArray(state.companions) ? state.companions : [];
+  state.party = Array.isArray(state.party) ? state.party.slice(0,3) : [];
+  state.monsterWins = Number(state.monsterWins)||0;
+  state.inventory = {...state.inventory, monsterSeal: Number(state.inventory?.monsterSeal ?? 1)};
+  state.bestiary = state.bestiary || {};
+
+  // New original species and evolutionary families.
+  Object.assign(enemyData, {
+    dwarf:{name:'山岳ドワーフ',emoji:'🛠️',hp:42,atk:7,def:7,mag:2,res:4,ai:'defender',gold:[14,21]},
+    dwarfGuard:{name:'ドワーフガード',emoji:'⚒️',hp:78,atk:13,def:12,mag:3,res:7,ai:'defender',gold:[38,54]},
+    runeDwarf:{name:'ルーンマスター',emoji:'🔨',hp:102,atk:11,def:11,mag:17,res:14,ai:'caster',gold:[58,82]},
+    oni:{name:'幼き鬼人',emoji:'👹',hp:50,atk:10,def:5,mag:4,res:4,ai:'aggressive',gold:[20,30],weak:['光']},
+    oniWarrior:{name:'鬼人の武闘家',emoji:'👹',hp:94,atk:18,def:9,mag:7,res:8,ai:'aggressive',gold:[50,72],weak:['光']},
+    oniLord:{name:'鬼神の覇者',emoji:'👹',hp:155,atk:23,def:15,mag:18,res:15,ai:'trickster',gold:[100,145],weak:['光'],resist:['闇']}
+  });
+  Object.assign(monsterMeta, {
+    dwarf:{species:'dwarf',speciesName:'ドワーフ族',rank:1,rankName:'下級',from:null,to:['dwarfGuard','runeDwarf']},
+    dwarfGuard:{species:'dwarf',speciesName:'ドワーフ族',rank:3,rankName:'上級',from:'dwarf',to:['runeDwarf']},
+    runeDwarf:{species:'dwarf',speciesName:'ドワーフ族',rank:4,rankName:'将軍級',from:'dwarfGuard',to:[]},
+    oni:{species:'oni',speciesName:'鬼人族',rank:1,rankName:'下級',from:null,to:['oniWarrior']},
+    oniWarrior:{species:'oni',speciesName:'鬼人族',rank:3,rankName:'上級',from:'oni',to:['oniLord']},
+    oniLord:{species:'oni',speciesName:'鬼人族',rank:5,rankName:'王級',from:'oniWarrior',to:[]}
+  });
+  areas.find(a=>a.id==='forest').enemies.push('dwarf');
+  areas.find(a=>a.id==='ruins').upperEnemies.push('dwarfGuard','runeDwarf');
+  areas.find(a=>a.id==='abyss').enemies.push('oni');
+  areas.find(a=>a.id==='abyss').upperEnemies.push('oniWarrior','oniLord');
+  itemData.monsterSeal={name:'魔物の封印札',emoji:'📜',price:70,desc:'戦闘中の魔物を仲間にするための札'};
+  skillData.ironWall={name:'鉄壁の守り',type:'support',power:0,level:7,cost:170,desc:'被ダメージを大幅軽減。1戦闘につき2回まで'};
+
+  // Add filters without disturbing the existing options.
+  const filter=document.getElementById('bestiaryFilter');
+  if(filter && !filter.querySelector('option[value="dwarf"]')) filter.insertAdjacentHTML('beforeend','<option value="dwarf">ドワーフ族</option><option value="oni">鬼人族</option>');
+  const app=document.getElementById('rpg');
+  if(app && !document.getElementById('companionHub')){
+    const card=document.createElement('div'); card.className='card'; card.innerHTML='<h2 class="section-title">仲間・パーティ管理</h2><p class="muted">仲間は最大3体までパーティに編成できます。戦闘では毎ターン、行動させる仲間と行動を自分で選びます。</p><div id="companionHub"></div>';
+    app.insertBefore(card, document.getElementById('battleCard'));
+  }
+  const style=document.createElement('style');
+  style.textContent=`
+  .companion-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:10px}
+  .companion-card{background:#111923;border:1px solid #526070;border-radius:12px;padding:10px;min-width:0}
+  .companion-card.in-party{border-color:#b99b60;box-shadow:0 0 0 1px #b99b6033}
+  .companion-art{width:100%;height:100px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#253447,#111923);border-radius:9px;margin-bottom:8px;overflow:hidden;font-size:54px}
+  .companion-art img{width:100%;height:100%;object-fit:contain}
+  .companion-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}
+  .companion-actions button,.companion-command button{font-size:12px;padding:9px 5px}
+  .companion-command{border:1px solid #9b895d;background:#111923;border-radius:10px;padding:10px;margin-top:10px}
+  .companion-command .actiongrid{margin-top:8px}
+  .companion-tag{display:inline-block;font-size:10px;padding:3px 7px;border-radius:20px;background:#293747;color:#e5e9ef;margin:2px 3px 2px 0}
+  .companion-muted{font-size:11px;color:#b6c0cd;line-height:1.55}
+  .evolve-box{border-top:1px solid #46505d;margin-top:8px;padding-top:8px}
+  .bond-bar{height:7px;background:#343c48;border-radius:9px;overflow:hidden;margin:5px 0}.bond-bar span{display:block;height:100%;background:#c2a56c}
+  .status-readable,.stat strong{color:#fff!important;text-shadow:0 1px 2px #000}
+  `;
+  document.head.appendChild(style);
+
+  const personalities={
+    timid:['臆病','慎重','献身的'],capricious:['気まぐれ','好奇心旺盛','忠実'],bold:['大胆','勇敢','勇猛'],gentle:['優しい','思いやり深い','献身的'],proud:['誇り高い','自信家','誇り高き守護者'],curious:['好奇心旺盛','探究心旺盛','賢明']
+  };
+  const personalityKeys=Object.keys(personalities);
+  const evolution={
+    goblin:[{id:'hobgoblin',lv:5},{id:'goblinShaman',lv:5}],hobgoblin:[{id:'goblinGeneral',lv:12,bond:25}],goblinShaman:[{id:'goblinSage',lv:12,bond:25}],goblinGeneral:[{id:'goblinKing',lv:20,bond:60,wins:10,special:true}],goblinSage:[{id:'goblinKing',lv:20,bond:60,wins:10,special:true}],
+    slime:[{id:'aquaSlime',lv:5},{id:'flameSlime',lv:5},{id:'crystalSlime',lv:10,bond:30}],wolf:[{id:'shadowWolf',lv:5},{id:'frostWolf',lv:5},{id:'alphaWolf',lv:12,bond:35}],skeleton:[{id:'skeletonKnight',lv:10,bond:20}],fairy:[{id:'elderFairy',lv:12,bond:30}],wyvern:[{id:'elderWyvern',lv:15,bond:40}],elderWyvern:[{id:'voidDragon',lv:22,bond:70,wins:20,special:true}],
+    dwarf:[{id:'dwarfGuard',lv:6},{id:'runeDwarf',lv:10,bond:35}],dwarfGuard:[{id:'runeDwarf',lv:15,bond:45}],oni:[{id:'oniWarrior',lv:8,bond:20}],oniWarrior:[{id:'oniLord',lv:18,bond:55,wins:12,special:true}]
+  };
+  const labelFor=(id)=>enemyData[id]?.name||id;
+  const findComp=(id)=>state.companions.find(c=>c.uid===id);
+  function companionPortrait(c){
+    const meta=monsterMeta[c.id]||{},species=meta.species,rank=meta.rank||1;
+    if(!['goblin','dwarf','oni'].includes(species))return meta.image?monsterArt[meta.image]:null;
+    const mature=rank>=2,elite=rank>=4,female=c.gender==='女性';
+    const palette=species==='goblin'?{skin:'#91b96d',dark:'#476b48',hair:'#394b37',cloth:'#536c83'}:species==='dwarf'?{skin:'#e0b58c',dark:'#8d5939',hair:'#76503b',cloth:'#7c6650'}:{skin:'#e9b6a5',dark:'#9b454a',hair:'#282b43',cloth:'#74485f'};
+    const headY=mature?92:105,headRx=mature?43:51,headRy=mature?54:58;
+    let ears=species==='goblin'?`<path d="M82 90 L18 54 Q25 124 82 124Z" fill="${palette.skin}" stroke="${palette.dark}" stroke-width="5"/><path d="M174 90 L238 54 Q231 124 174 124Z" fill="${palette.skin}" stroke="${palette.dark}" stroke-width="5"/>`:'';
+    let horns=species==='oni'?`<path d="M91 64 Q68 5 48 20 Q50 66 88 88Z" fill="#eee2cf" stroke="#8e6b65" stroke-width="5"/><path d="M165 64 Q188 5 208 20 Q206 66 168 88Z" fill="#eee2cf" stroke="#8e6b65" stroke-width="5"/>`:'';
+    let beard=species==='dwarf'&&!female?`<path d="M83 128 Q128 162 173 128 L162 208 Q128 238 94 208Z" fill="${palette.dark}" stroke="#49382e" stroke-width="5"/><path d="M108 160 Q128 176 148 160" fill="none" stroke="#c79b69" stroke-width="5"/>`:'';
+    let hair=female?`<path d="M78 92 Q68 30 128 31 Q190 30 180 99 L187 172 Q164 154 164 119 L92 119 Q91 153 69 172Z" fill="${palette.hair}"/>`:`<path d="M76 93 Q68 25 128 25 Q190 25 180 94 L168 76 Q148 54 129 64 Q100 51 82 82Z" fill="${palette.hair}"/>`;
+    let armor=mature?`<path d="M51 256 Q54 178 91 163 L128 181 L165 163 Q202 178 205 256Z" fill="${palette.cloth}" stroke="#d2b47d" stroke-width="5"/><path d="M94 174 L128 204 L162 174" fill="none" stroke="#e8d8b8" stroke-width="7"/>`:`<path d="M65 256 Q69 177 100 169 L128 185 L156 169 Q187 177 191 256Z" fill="${palette.cloth}" stroke="#d2b47d" stroke-width="4"/>`;
+    let faceMark=species==='oni'?`<path d="M91 105 Q100 125 91 142 M165 105 Q156 125 165 142" stroke="#a6424d" stroke-width="6" fill="none"/>`:'';
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#334b60"/><stop offset="1" stop-color="#111923"/></linearGradient><radialGradient id="glow"><stop stop-color="#d4bc8a" stop-opacity=".35"/><stop offset="1" stop-color="#d4bc8a" stop-opacity="0"/></radialGradient></defs><rect width="256" height="256" rx="20" fill="url(#bg)"/><circle cx="128" cy="116" r="118" fill="url(#glow)"/>${armor}${ears}${horns}<ellipse cx="128" cy="${headY}" rx="${headRx}" ry="${headRy}" fill="${palette.skin}" stroke="${palette.dark}" stroke-width="5"/>${hair}${beard}${faceMark}<path d="M98 108 Q108 101 117 108 M139 108 Q149 101 158 108" stroke="#29313a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="108" cy="116" rx="6" ry="8" fill="#f5e9c9"/><ellipse cx="148" cy="116" rx="6" ry="8" fill="#f5e9c9"/><circle cx="109" cy="116" r="3" fill="#20252b"/><circle cx="149" cy="116" r="3" fill="#20252b"/><path d="M116 145 Q128 153 140 145" stroke="${palette.dark}" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M102 159 L128 177 L154 159" stroke="#e5c98e" stroke-width="4" fill="none"/>${elite?'<path d="M94 38 L128 8 L162 38" stroke="#d9bd78" stroke-width="7" fill="none"/>':''}</svg>`;
+    return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+  }
+  function bondDialogue(c){if(c.intimacy>=60)return '「どこまでも一緒に行くよ！」';if(c.intimacy>=25)return '「君といると、なんだか安心する。」';return '「まだ少し緊張するけど……よろしくね。」';}
+  function intimacy(c,n){c.intimacy=Math.max(0,Math.min(100,(c.intimacy||0)+n));let stage=c.intimacy>=60?2:c.intimacy>=25?1:0;c.personalityStage=stage;c.personalityLabel=personalities[c.personality]?.[stage]||'忠実';}
+  function addCompanionExp(c,n){c.exp=(c.exp||0)+n;while(c.level<30&&c.exp>=c.level*55){c.exp-=c.level*55;c.level++;c.maxHp+=4;c.hp=c.maxHp;c.atk+=1;c.def+=1;if(c.gender==='女性')c.mag+=1;else c.res+=1;}}
+  function recruit(e,source){
+    if(state.companions.length>=30){alert('仲間の保有数が上限（30体）です。');return false;}
+    const typed=prompt(`${e.name}が仲間になりたそうだ！
+この子につける名前を入力してください。（必須）`,e.name);
+    if(typed===null)return false;
+    const name=typed.trim(); if(!name){alert('仲間には必ず名前をつけてください。');return false;}
+    const gender=Math.random()<.5?'男性':'女性'; const p=personalityKeys[Math.floor(Math.random()*personalityKeys.length)];
+    const m=monsterMeta[e.baseId||e.id]||{}; const scale=gender==='男性'?{atk:1.04,def:1.02,mag:1,res:1}:{atk:1,def:1,mag:1.04,res:1.02};
+    const c={uid:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),id:e.baseId||e.id,name,gender,personality:p,personalityStage:0,personalityLabel:personalities[p][0],intimacy:0,level:e.level||1,exp:0,maxHp:Math.round(e.maxHp||e.hp),hp:Math.round(e.maxHp||e.hp),atk:Math.max(1,Math.round((e.atk||5)*scale.atk)),def:Math.max(1,Math.round((e.def||3)*scale.def)),mag:Math.max(1,Math.round((e.mag||2)*scale.mag)),res:Math.max(1,Math.round((e.res||2)*scale.res)),rarity:e.rarity||'normal',joinedAt:today(),evolved:false};
+    state.companions.push(c);const rec=state.bestiary[c.id]||{seen:1,kills:0,rareSeen:0,legendarySeen:0};rec.recruited=(rec.recruited||0)+1;state.bestiary[c.id]=rec;
+    if(state.party.length<3)state.party.push(c.uid);
+    state.coach=`${name}が仲間になった！これから一緒に成長していこう。`;
+    state.adventureHistory.unshift({day:today(),text:`${name}（${labelFor(c.id)}）が仲間になった`});save();return true;
+  }
+  function renderCompanionHub(){
+    const root=document.getElementById('companionHub');if(!root)return;
+    const party=state.party.map(findComp).filter(Boolean);
+    const partyHtml=party.length?party.map(c=>`<span class="companion-tag">${esc(c.name)} · Lv.${c.level}</span>`).join(''):'<span class="companion-muted">まだパーティに仲間がいません。冒険で魔物を仲間にしよう。</span>';
+    const cards=state.companions.map(c=>{
+      const meta=monsterMeta[c.id]||{},art=companionPortrait(c),active=state.party.includes(c.uid),opts=evolution[c.id]||[];
+      const evolveHtml=opts.length?opts.map(o=>{const ok=c.level>=o.lv&&(c.intimacy||0)>=(o.bond||0)&&state.monsterWins>=(o.wins||0);const hint=o.special?'特殊な条件があるようだ……':`必要Lv.${o.lv}${o.bond?`・親密度${o.bond}`:''}`;return `<div class="companion-muted">${labelFor(o.id)}：${hint}</div><button class="secondary full" data-evolve="${c.uid}:${o.id}" ${ok?'':'disabled'} style="margin-top:5px">${labelFor(o.id)}へ進化</button>`}).join(''):'<div class="companion-muted">現在確認できる進化先はありません。</div>';
+      return `<div class="companion-card ${active?'in-party':''}"><div class="companion-art">${art?`<img src="${art}" alt="${esc(labelFor(c.id))}">`:esc(enemyData[c.id]?.emoji||'✨')}</div><b>${esc(c.name)}</b><div class="companion-muted">${esc(labelFor(c.id))} · ${c.gender} · Lv.${c.level}</div><div class="companion-muted">性格：${esc(c.personalityLabel||personalities[c.personality]?.[0]||'忠実')} · 固有技：${c.gender==='男性'?'剛撃':'魔弾'}</div><div class="companion-muted">HP ${c.hp}/${c.maxHp} · 攻 ${c.atk} · 防 ${c.def} · 魔 ${c.mag}</div><div class="companion-muted">親密度 ${c.intimacy}/100</div><div class="companion-muted">${esc(bondDialogue(c))}</div><div class="bond-bar"><span style="width:${c.intimacy}%"></span></div><div class="companion-actions"><button class="${active?'gold':'secondary'}" data-party="${c.uid}">${active?'パーティ解除':'パーティ編成'}</button><button class="secondary" data-train="${c.uid}">訓練する（45G）</button></div><div class="evolve-box"><b class="companion-muted">進化候補</b>${evolveHtml}</div></div>`;
+    }).join('');
+    root.innerHTML=`<div><b>現在のパーティ（${party.length}/3）</b><div style="margin:6px 0 10px">${partyHtml}</div></div><div class="companion-muted">仲間 ${state.companions.length}/30体 · 勝利数 ${state.monsterWins} · 勉強や冒険で親密度とレベルが上がります。</div><div class="companion-grid">${cards}</div>`;
+    root.querySelectorAll('[data-party]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.party;if(state.party.includes(id))state.party=state.party.filter(x=>x!==id);else if(state.party.length<3)state.party.push(id);else alert('パーティは最大3体です。');save()});
+    root.querySelectorAll('[data-evolve]').forEach(btn=>btn.onclick=()=>{const [uid,to]=btn.dataset.evolve.split(':');const c=findComp(uid),rule=(evolution[c?.id]||[]).find(x=>x.id===to);if(!c||!rule)return;if(c.level<rule.lv||(c.intimacy||0)<(rule.bond||0)||state.monsterWins<(rule.wins||0))return;const confirmText=`${c.name}を${labelFor(to)}に進化させますか？
+進化後は別の進化ルートに変更できません。
+レベル・性格・性別・名前は引き継がれます。`;if(!confirm(confirmText))return;c.id=to;c.evolved=true;c.maxHp=Math.round(c.maxHp*1.22);c.hp=c.maxHp;c.atk=Math.round(c.atk*1.18);c.def=Math.round(c.def*1.15);c.mag=Math.round(c.mag*1.16);c.res=Math.round(c.res*1.15);state.bestiary[to]=state.bestiary[to]||{seen:1,kills:0,rareSeen:0,legendarySeen:0,recruited:1};state.adventureHistory.unshift({day:today(),text:`${c.name}が${labelFor(to)}に進化した！`});save();alert(`${c.name}は${labelFor(to)}に進化した！`)});
+    root.querySelectorAll('[data-train]').forEach(btn=>btn.onclick=()=>{const c=findComp(btn.dataset.train);if(!c)return;if(state.gold<45){alert('訓練には45 GOLD必要です。');return;}const choice=prompt(`${c.name}を訓練します。伸ばす能力を選んでください。
+1：HP  2：攻撃  3：防御  4：魔力  5：抵抗`,'2');const keys={1:'hp',2:'atk',3:'def',4:'mag',5:'res'};const key=keys[choice];if(!key)return;state.gold-=45;if(key==='hp'){c.maxHp+=8;c.hp+=8}else c[key]+=2;state.adventureHistory.unshift({day:today(),text:`${c.name}を訓練：${({hp:'HP',atk:'攻撃',def:'防御',mag:'魔力',res:'抵抗'})[key]}上昇`});save()});
+  }
+  function companionBattleUI(){
+    const card=document.getElementById('battleCard');if(!card||!state.battle)return;
+    const available=state.party.map(findComp).filter(Boolean);
+    if(available.length){card.insertAdjacentHTML('beforeend',`<div class="companion-command"><b>仲間の行動（毎ターン1体）</b><select id="companionTurnSelect">${available.map(c=>`<option value="${c.uid}">${esc(c.name)} · Lv.${c.level}</option>`).join('')}</select><div class="actiongrid"><button class="secondary" data-comp-command="attack">攻撃</button><button class="secondary" data-comp-command="heal">回復</button><button class="secondary" data-comp-command="guard">援護防御</button></div><div id="companionCommandStatus" class="companion-muted">行動を選ぶと、次の主人公の行動と同時に実行されます。</div></div>`);
+      const turnSelect=document.getElementById('companionTurnSelect');const attackButton=card.querySelector('[data-comp-command="attack"]');const refreshSignature=()=>{const c=findComp(turnSelect.value);attackButton.textContent=c?.gender==='女性'?'魔弾':'剛撃'};turnSelect.onchange=refreshSignature;refreshSignature();card.querySelectorAll('[data-comp-command]').forEach(btn=>btn.onclick=()=>{const uid=turnSelect.value;state.battle.companionCommand={uid,action:btn.dataset.compCommand};const c=findComp(uid);document.getElementById('companionCommandStatus').textContent=`${c?.name||'仲間'}：${({attack:c?.gender==='女性'?'魔弾':'剛撃',heal:'回復',guard:'援護防御'})[btn.dataset.compCommand]}を予約中。主人公の行動と一緒に実行されます。`;});
+    }
+    const seals=state.inventory.monsterSeal||0;
+    card.insertAdjacentHTML('beforeend',`<button class="gold full" id="captureMonster" style="margin-top:8px" ${seals>0?'':'disabled'}>魔物の封印札で仲間にする（${seals}枚）</button>`);
+    document.getElementById('captureMonster').onclick=()=>{
+      if(!state.battle||!state.inventory.monsterSeal)return;
+      const e=state.battle.enemy,meta=monsterMeta[e.id]||{},rank=meta.rank||1;
+      const chance=Math.max(.035,.205-(e.level*.008)-(rank*.012))*(e.rarity==='legendary'?.55:e.rarity==='rare'?.75:1);
+      state.inventory.monsterSeal--;if(Math.random()<chance){addLog(`${e.name}を封印した！`);e._captured=true;const joined=recruit(e,'item');if(joined)finishBattle(true);else{e._captured=false;addLog('仲間にするのを見送った。戦闘は続く。');save()}}else{addLog(`${e.name}は封印から逃れた……（成功率 ${Math.round(chance*100)}%）`);save()}
+    };
+  }
+  function applyCompanionCommand(){
+    const b=state.battle,cmd=b?.companionCommand;if(!cmd)return;
+    b.companionCommand=null;const c=findComp(cmd.uid);if(!c||!state.party.includes(c.uid))return;
+    const e=b.enemy;
+    if(cmd.action==='attack'){
+      const traitBonus=c.personality==='capricious'?(Math.random()<.5?.12:0):c.personality==='bold'?.10:c.personality==='proud'?.07:c.personality==='curious'?.04:0;const loyaltyBonus=(c.personalityStage||0)>=2?.05:0;const raw=c.gender==='女性'?c.mag*.95-e.res*.22:c.atk*.9-e.def*.22;const dmg=Math.max(1,Math.floor(raw*(1+traitBonus+loyaltyBonus)));e.hp=Math.max(0,e.hp-dmg);addLog(`${c.name}の${c.gender==='女性'?'魔弾':'剛撃'}！ ${dmg}ダメージ。`);
+    }else if(cmd.action==='heal'){
+      const amount=Math.max(5,Math.floor((c.mag*.85+7)*(c.personality==='gentle'||c.personality==='curious'?1.15:1)*((c.personalityStage||0)>=2?1.05:1)));const before=currentHP();setHP(currentHP()+amount);addLog(`${c.name}が主人公を回復！ HPが${currentHP()-before}回復。`);
+    }else if(cmd.action==='guard'){
+      b.guard=true;b.guardReduction=(c.personality==='timid'||c.personality==='gentle')?.28:.35;addLog(`${c.name}が主人公をかばう！次の攻撃を軽減する。`);
+    }
+    if(e.hp<=0){finishBattle(true);return 'defeated';}
+  }
+  // Wrap the existing engine so all v4 study, quest, shop and combat features remain intact.
+  const oldXPGain=xpGain;xpGain=function(amount){oldXPGain(amount);state.gold+=Math.floor(amount*.3);state.party.map(findComp).filter(Boolean).forEach(c=>{addCompanionExp(c,Math.max(1,Math.floor(amount*.22)));intimacy(c,Math.max(1,Math.floor(amount/45)));});};
+  const oldEnemyTurn=enemyTurn;enemyTurn=function(preempt=false){if(!preempt&&state.battle){const result=applyCompanionCommand();if(result==='defeated'||!state.battle)return;}return oldEnemyTurn(preempt)};
+  const oldFinishBattle=finishBattle;finishBattle=function(win,escaped=false,fallen=false){const enemy=state.battle?.enemy;oldFinishBattle(win,escaped,fallen);if(win&&enemy){if(enemy._captured){const rec=state.bestiary[enemy.baseId||enemy.id];if(rec)rec.kills=Math.max(0,(rec.kills||0)-1);if(state.adventureHistory[0])state.adventureHistory[0].text=`${enemy.name}を封印して仲間にした。`; }state.monsterWins++;state.party.map(findComp).filter(Boolean).forEach(c=>{intimacy(c,3);addCompanionExp(c,10)});if(!enemy._captured&&state.companions.length<30){const rank=monsterMeta[enemy.id]?.rank||1;const chance=.02/(1+(enemy.level-1)*.08)/(1+(rank-1)*.22)*(enemy.rarity==='legendary'?.45:enemy.rarity==='rare'?.7:1);if(Math.random()<chance){const got=recruit(enemy,'victory');if(got)state.coach='思いがけない出会いだ！新しい仲間と冒険しよう。';}}save();}};
+  const oldRenderBattle=renderBattle;renderBattle=function(){oldRenderBattle();companionBattleUI()};
+  const oldRender=render;render=function(){oldRender();renderCompanionHub()};
+  const oldRenderBestiary=renderBestiary;renderBestiary=function(){oldRenderBestiary();const n=document.getElementById('seenCount');if(n){const recruited=state.companions.length;const stats=n.parentElement;if(stats&&!document.getElementById('recruitedCount'))stats.insertAdjacentHTML('beforeend',`<div class="stat"><span class="muted">仲間にした数</span><strong id="recruitedCount">${recruited}</strong></div>`);else if(document.getElementById('recruitedCount'))document.getElementById('recruitedCount').textContent=recruited;}};
+  // Update encyclopedia family filters and add new evolutionary trees.
+  const oldBestGrid=renderBestiary; // retain the v4 listing; companion records are tracked separately above.
+  const about=document.querySelector('#settings .card:nth-child(2) p');if(about)about.textContent='Study Quest v5.0 · 仲間・親密度・進化・パーティ戦闘 · データは端末内に保存';
+  const brand=document.querySelector('header .brand');if(brand)brand.textContent='STUDY QUEST V5 · YOUR LEARNING ADVENTURE';
+  const aboutApp=document.querySelector('#settings .card:nth-child(2) h3');if(aboutApp)aboutApp.textContent='Study Quest v5.0';
+  // Make the defense skill meaningfully distinct: normal guard is moderate, Iron Wall is limited-use.
+  const oldActionTurn=actionTurn;actionTurn=function(action,skillId){const b=state.battle;if(action==='guard'&&b){b.guardReduction=.6;}if(action==='skill'&&skillId==='ironWall'&&b){b.ironWallUses=b.ironWallUses??2;if(b.ironWallUses<=0){alert('鉄壁の守りはこの戦闘ではもう使えません。');return;}b.ironWallUses--;b.guardReduction=.12;}return oldActionTurn(action,skillId)};
+  // v5 update notice and initial render.
+  const oldSave=save;save=function(){oldSave();};
+  render();
+})();
+
 </script>
 </body></html>
