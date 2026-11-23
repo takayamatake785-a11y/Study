@@ -31,10 +31,20 @@ The app continues using localStorage key `studyQuest_v1`; existing v4 data is re
 JavaScript syntax checks and ZIP integrity checks were run. Full iPhone/Safari end-to-end interaction testing has not been completed; after deployment, test recruitment, naming, party commands, capture, and evolution with a JSON backup safely stored first.
 
 
-## Study Quest v6.0 — Visual Upgrade
+## Study Quest v7.0 — Visual Upgrade
 - Added 16 dedicated WebP monster portraits in `assets/monsters/`.
 - Goblin, oni, dwarf, and slime families now use dedicated art across their existing evolution stages.
 - Bestiary cards, battle portraits, companion cards, and evolution trees share the same portrait assets.
 - Wolf, undead, spirit, and dragon families retain their v5 artwork in this first visual pass; their dedicated evolution art is planned for a follow-up visual pack.
 - Existing local save key (`studyQuest_v1`) is preserved to support v5 save-data continuity.
-- Service worker cache updated to `study-quest-v6` and pre-caches all monster portraits.
+- Service worker cache updated to `study-quest-v7` and pre-caches all monster portraits.
+
+
+## v7.0 更新
+- 性別を敵出現時に決定し、仲間になっても引き継ぐ仕組みを追加（ドワーフは男性のみ）
+- 仲間の個体才能・外見色・食べ物履歴を保存
+- 食べ物による親密度上昇と、3回ごとの髪・目・体色変化
+- 仲間のおやつ購入欄を追加
+- 鬼の女性専用進化「妖鬼」を追加
+- ゴブリン・鬼・ドワーフの新規イラストを追加
+- 既存の localStorage キー studyQuest_v1 を維持
